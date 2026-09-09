@@ -144,7 +144,7 @@ marked complete.
 - [x] TB-QA-S02 `HomeHeroSection`: verified default and desktop hover states against original at
   375px, 800px, and 1280px.
 - [x] TB-QA-S03 `SelectedWorkIntroSection`: verified against original at 375px, 800px, and 1280px.
-- [ ] TB-QA-S04 `SelectedWorkProjectsSection`: verify all five rendered `ProjectCard` instances against original at 375px, 800px, and 1280px.
+- [x] TB-QA-S04 `SelectedWorkProjectsSection`: verify all five rendered `ProjectCard` instances against original at 375px, 800px, and 1280px.
 - [x] TB-QA-S09 `HomeFooterSection`: verified against original HTML styles and local browser
   metrics at 375px, 800px, and 1280px.
 - [ ] TB-QA-S10 `CaseCloseNavSection`: verify against original at 375px, 800px, and 1280px.

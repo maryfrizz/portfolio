@@ -8,7 +8,7 @@ type ProjectImageProps = {
 
 export function ProjectImage({ image, priority = false }: ProjectImageProps) {
   return (
-    <div className="relative aspect-[16/10] overflow-hidden bg-[#f4f1f6]">
+    <div className="relative aspect-[0.74] w-[calc((100vw-42px)/2)] shrink-0 overflow-hidden rounded-lg bg-[#f4f1f6] md:w-[400px] xl:aspect-[1.08] xl:w-auto">
       <Image
         alt={image.alt}
         className="object-cover"

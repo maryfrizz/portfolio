@@ -15,12 +15,6 @@ export const selectedWorkProjects = [
       "An AI Life Coaching mobile application that helps people change their everyday habits",
     images: [
       {
-        alt: "Hapday mobile coaching app screen",
-        height: 260,
-        src: `${projectAssetPath}8f6da8e39ddfc82a86e7eb7c2089741876b7f6da.png`,
-        width: 260,
-      },
-      {
         alt: "Hapday app interface on a phone",
         height: 3000,
         src: `${projectAssetPath}b37798d8e0043016372648dc9f629209d7fc0374.png`,
@@ -45,12 +39,6 @@ export const selectedWorkProjects = [
     description: "A website redesign for the largest custom storage brand in North America",
     images: [
       {
-        alt: "California Closets home page redesign",
-        height: 2160,
-        src: `${projectAssetPath}24b98fd052db573f669a3f56ebbc19c2116be7f9.png`,
-        width: 3840,
-      },
-      {
         alt: "California Closets product page redesign",
         height: 2160,
         src: `${projectAssetPath}0e057ce9408c7cd0b2028274250feb83dcd712d4.png`,
@@ -60,6 +48,12 @@ export const selectedWorkProjects = [
         alt: "California Closets interior page redesign",
         height: 2160,
         src: `${projectAssetPath}489b6c04437865a5b50a6ea26ddeaa0bb391146a.png`,
+        width: 3840,
+      },
+      {
+        alt: "California Closets home page redesign",
+        height: 2160,
+        src: `${projectAssetPath}24b98fd052db573f669a3f56ebbc19c2116be7f9.png`,
         width: 3840,
       },
     ],
@@ -79,22 +73,16 @@ export const selectedWorkProjects = [
     description: "Sleep app that helps millions fall asleep every night",
     images: [
       {
-        alt: "Sleepiest app phone mockup",
-        height: 1620,
-        src: `${projectAssetPath}4f53bc5e69751b9dda3739be9021c4cb379867c2.png`,
-        width: 1080,
+        alt: "Sleepiest meditation screen",
+        height: 1128,
+        src: `${projectAssetPath}95046d6f3c616531c6b0ca1d6d1640a4b61f96be.png`,
+        width: 1504,
       },
       {
         alt: "Sleepiest bedtime interface",
         height: 2980,
         src: `${projectAssetPath}7a089b532f50feb027a4146fdfe8c78497aadca7.png`,
         width: 1980,
-      },
-      {
-        alt: "Sleepiest meditation screen",
-        height: 1128,
-        src: `${projectAssetPath}95046d6f3c616531c6b0ca1d6d1640a4b61f96be.png`,
-        width: 1504,
       },
     ],
     slug: "sleepiest",
@@ -109,16 +97,16 @@ export const selectedWorkProjects = [
     description: "Ecommerce redesign for a leader in luxury home decor",
     images: [
       {
-        alt: "Serena and Lily ecommerce redesign",
-        height: 3072,
-        src: `${projectAssetPath}cb876029cdca44414d9409724b9ae6bf4f05a0b0.png`,
-        width: 4096,
-      },
-      {
         alt: "Serena and Lily shopping interface",
         height: 2700,
         src: `${projectAssetPath}836bdc38fc36a44cc4e614bde7f16b36ba1f098c.png`,
         width: 2160,
+      },
+      {
+        alt: "Serena and Lily ecommerce redesign",
+        height: 3072,
+        src: `${projectAssetPath}cb876029cdca44414d9409724b9ae6bf4f05a0b0.png`,
+        width: 4096,
       },
     ],
     slug: "serena-lily",
@@ -131,19 +119,19 @@ export const selectedWorkProjects = [
     description: "A website for a major digital banking platform",
     images: [
       {
-        alt: "Q2 banking platform website screen",
+        alt: "Q2 banking platform website overview",
+        height: 2160,
+        src: `${projectAssetPath}17ee4a2f614ecb4ab794baa926939d9c3e12af36.png`,
+        width: 2160,
+      },
+      {
+        alt: "Q2 banking platform commercial screen",
         height: 2700,
         src: `${projectAssetPath}0fcc033b81a04c88697cf850ed79b18f1d880e2e.png`,
         width: 2160,
       },
       {
-        alt: "Q2 banking platform interface",
-        height: 2700,
-        src: `${projectAssetPath}17ee4a2f614ecb4ab794baa926939d9c3e12af36.png`,
-        width: 2160,
-      },
-      {
-        alt: "Q2 banking platform website overview",
+        alt: "Q2 banking platform product layers",
         height: 2160,
         src: `${projectAssetPath}bc25acea11d5166d5366b4bc8d97d59d8416500a.png`,
         width: 3840,
