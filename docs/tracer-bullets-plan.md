@@ -83,7 +83,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - TB-S06 `SleepiestProjectSection`: Sleepiest project block.
 - TB-S07 `SerenaLilyProjectSection`: Serena & Lily project block, including `/ 2022` where the source breakpoint shows it.
 - TB-S08 `Q2ProjectSection`: Q2 project block with `Coming soon`.
-- TB-S09 `HomeFooterSection`: email plus LinkedIn, CV, and Telegram.
+- [x] TB-S09 `HomeFooterSection`: email plus LinkedIn, CV, and Telegram.
 - TB-S10 `CaseCloseNavSection`: close button back to `/`.
 - TB-S11 `CaseHeroSection`: case headline and `California Closets.com` link.
 - TB-S12 `CaseOverviewSection`: duration, categories, and `My Role`.
@@ -137,7 +137,8 @@ marked complete.
 - [ ] TB-QA-S06 `SleepiestProjectSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S07 `SerenaLilyProjectSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S08 `Q2ProjectSection`: verify against original at 375px, 800px, and 1280px.
-- [ ] TB-QA-S09 `HomeFooterSection`: verify against original at 375px, 800px, and 1280px.
+- [x] TB-QA-S09 `HomeFooterSection`: verified against original HTML styles and local browser
+  metrics at 375px, 800px, and 1280px.
 - [ ] TB-QA-S10 `CaseCloseNavSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S11 `CaseHeroSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S12 `CaseOverviewSection`: verify against original at 375px, 800px, and 1280px.

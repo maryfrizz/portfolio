@@ -7,7 +7,7 @@ type FooterEmailProps = {
 export function FooterEmail({ email }: FooterEmailProps) {
   return (
     <ExternalTextLink
-      className="block w-fit max-w-full break-words text-[40px] font-medium leading-[1.05] tracking-normal text-[#120a1d] md:text-[64px] xl:text-[96px]"
+      className="block w-fit max-w-full break-words text-[36px] font-medium leading-[1.1] tracking-[-1.08px] text-[#120a1d] md:text-[77px] md:tracking-[-2.31px]"
       href={`mailto:${email}`}
       rel={undefined}
       target={undefined}
