@@ -14,7 +14,7 @@ const headerLinks = [
 
 export function HeaderSection() {
   return (
-    <header className="h-[68px] text-base leading-6 tracking-[0.02em] text-[#120a1d]">
+    <header className="sticky top-0 z-50 h-[68px] bg-white/80 text-base leading-6 tracking-[0.02em] text-[#120a1d] backdrop-blur-[4px]">
       <PageContainer
         className="flex h-full items-center justify-between gap-6 px-[15px] md:px-10 xl:px-14"
         style={{ maxWidth: "none" }}
