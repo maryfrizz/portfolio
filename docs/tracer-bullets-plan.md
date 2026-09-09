@@ -120,6 +120,7 @@ Each tracer bullet must stay small and closed:
 - Create or update exactly one component, section, or assembly layer.
 - Connect it to the nearest parent so the result is visible in the UI.
 - Do not mix multiple new components in one bullet, except importing already completed components.
+- Before committing each UI bullet, verify design correspondence against the relevant original `kozikova.com` breakpoint: visible copy, links, spacing, sizing, colors, typography, and asset choice.
 - Check TypeScript/import paths after each related group of bullets.
 - Leave the project in a compilable state after each bullet whenever feasible.
 
