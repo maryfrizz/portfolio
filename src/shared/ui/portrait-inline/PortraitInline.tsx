@@ -7,7 +7,12 @@ type PortraitInlineProps = {
   src: string;
 };
 
-export function PortraitInline({ alt, className = "", priority = false, src }: PortraitInlineProps) {
+export function PortraitInline({
+  alt,
+  className = "",
+  priority = false,
+  src,
+}: PortraitInlineProps) {
   return (
     <span
       className={`relative inline-block size-[0.95em] overflow-hidden rounded-full align-[-0.12em] ${className}`.trim()}

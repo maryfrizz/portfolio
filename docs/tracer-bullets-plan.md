@@ -76,7 +76,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 ## Section Tracer Bullets
 
 - [x] TB-S01 `HeaderSection`: `Maria Kozikova`, `Linked in`, and `CV`.
-- TB-S02 `HomeHeroSection`: headline, `PortraitInline`, and linked `UX/UI designer` text.
+- [x] TB-S02 `HomeHeroSection`: headline, `PortraitInline`, and linked `UX/UI designer` text.
 - TB-S03 `SelectedWorkIntroSection`: `Selected Work` heading and intro copy.
 - TB-S04 `HapdayProjectSection`: Hapday project block with `Case Study` and `View App`.
 - TB-S05 `CaliforniaClosetsProjectSection`: California Closets project block with `/case` link.
