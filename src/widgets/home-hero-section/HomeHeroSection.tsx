@@ -2,7 +2,7 @@
 
 import { motion, useAnimationControls, useReducedMotion, type Variants } from "motion/react";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { type ReactNode, useRef, useState } from "react";
 import { PageContainer } from "@/src/shared/ui/page-container";
 import { PortraitInline } from "@/src/shared/ui/portrait-inline";
 
@@ -20,6 +20,27 @@ const outlineVariants = {
   },
 } satisfies Variants;
 
+type HeroWordProps = {
+  children: ReactNode;
+  delay: number;
+  reduceMotion: boolean | null;
+};
+
+function HeroWord({ children, delay, reduceMotion }: HeroWordProps) {
+  return (
+    <span className="inline-block overflow-hidden align-bottom">
+      <motion.span
+        animate={{ opacity: 1, y: 0 }}
+        className="inline-block"
+        initial={reduceMotion ? false : { opacity: 0, y: "100%" }}
+        transition={{ delay, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {children}
+      </motion.span>
+    </span>
+  );
+}
+
 export function HomeHeroSection() {
   const firstPhoto = useAnimationControls();
   const secondPhoto = useAnimationControls();
@@ -28,6 +49,9 @@ export function HomeHeroSection() {
   const activePhoto = useRef(0);
   const interaction = useRef({ hover: false, focus: false });
   const reduceMotion = useReducedMotion();
+  const entranceTransition = { duration: 0.7, ease: [0.22, 1, 0.36, 1] } as const;
+  const heroEntranceDelays = { outline: 0.94, photo: 1 } as const;
+  const wordDelay = (index: number) => 0.22 + index * 0.06;
 
   async function swapPhotos(source: "hover" | "focus", active: boolean) {
     interaction.current[source] = active;
@@ -72,31 +96,56 @@ export function HomeHeroSection() {
         className="relative px-[15px] py-10 md:px-10 md:pb-[60px] md:pt-20 xl:px-14 xl:pb-20 xl:pt-[100px]"
         style={{ maxWidth: "none" }}
       >
-        <div
+        <motion.div
           aria-hidden="true"
+          animate={{ opacity: 1, y: 0 }}
           className="pointer-events-none absolute left-[2px] top-[73px] h-[73px] w-[310px] bg-[url('/assets/home/hero-outline-mobile.svg')] bg-[length:100%_100%] bg-no-repeat md:hidden"
+          initial={reduceMotion ? false : { opacity: 0, y: "100%" }}
+          transition={{ ...entranceTransition, delay: heroEntranceDelays.outline }}
         />
-        <div
+        <motion.div
           aria-hidden="true"
+          animate={{ opacity: 1, y: 0 }}
           className="pointer-events-none absolute left-[369px] top-[47px] hidden h-[120px] w-[411px] bg-[url('/assets/home/hero-outline-tablet.svg')] bg-[length:100%_100%] bg-no-repeat md:block xl:hidden"
+          initial={reduceMotion ? false : { opacity: 0, y: "100%" }}
+          transition={{ ...entranceTransition, delay: heroEntranceDelays.outline }}
         />
-        <PortraitInline
-          alt="portrait of designer"
-          className="!absolute left-[200px] top-[26px] size-[72px] md:!hidden"
-          priority
-          src="/assets/home/maria-portrait-mobile.png"
-        />
-        <PortraitInline
-          alt="portrait of designer"
-          className="!absolute left-[265px] top-[69px] !hidden size-[88px] md:!inline-block xl:!hidden"
-          priority
-          src="/assets/home/maria-portrait-inline.png"
-        />
+        <motion.span
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          className="absolute left-[200px] top-[26px] size-[72px] md:hidden"
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: "100%" }}
+          transition={{ ...entranceTransition, delay: heroEntranceDelays.photo }}
+        >
+          <PortraitInline
+            alt="portrait of designer"
+            className="!size-full"
+            priority
+            src="/assets/home/maria-portrait-mobile.png"
+          />
+        </motion.span>
+        <motion.span
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          className="absolute left-[265px] top-[69px] hidden size-[88px] md:inline-block xl:hidden"
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: "100%" }}
+          transition={{ ...entranceTransition, delay: heroEntranceDelays.photo }}
+        >
+          <PortraitInline
+            alt="portrait of designer"
+            className="!size-full"
+            priority
+            src="/assets/home/maria-portrait-inline.png"
+          />
+        </motion.span>
         <h1
           className="text-[44px] font-medium leading-[1.1] tracking-[-1.32px] text-[#120a1d] md:whitespace-nowrap md:text-[56px] md:tracking-[-1.68px] xl:text-[77px] xl:tracking-[-2.31px]"
           id="home-hero-heading"
         >
-          <span>I’m Maria</span>
+          <HeroWord delay={wordDelay(0)} reduceMotion={reduceMotion}>
+            I’m
+          </HeroWord>{" "}
+          <HeroWord delay={wordDelay(1)} reduceMotion={reduceMotion}>
+            Maria
+          </HeroWord>
           <span aria-hidden="true" className="inline-block w-[118px] md:w-[144px] xl:w-[197px]" />
           <motion.a
             animate="rest"
@@ -133,9 +182,12 @@ export function HomeHeroSection() {
                 />
               </svg>
             </motion.span>
-            <span
+            <motion.span
               aria-hidden="true"
+              animate={{ opacity: 1, scale: 1, y: 0 }}
               className="pointer-events-none !absolute left-[-158px] top-[-18px] z-20 !hidden size-[130px] xl:!inline-block"
+              initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: "100%" }}
+              transition={{ ...entranceTransition, delay: heroEntranceDelays.photo }}
             >
               <motion.span
                 animate={firstPhoto}
@@ -167,14 +219,70 @@ export function HomeHeroSection() {
                   src="/assets/home/maria-portrait-desktop-hover.png"
                 />
               </motion.span>
+            </motion.span>
+            <span className="relative z-10">
+              <HeroWord delay={wordDelay(2)} reduceMotion={reduceMotion}>
+                UX/UI
+              </HeroWord>{" "}
+              <HeroWord delay={wordDelay(3)} reduceMotion={reduceMotion}>
+                designer
+              </HeroWord>
             </span>
-            <span className="relative z-10">UX/UI designer</span>
           </motion.a>
-          <span className="md:hidden"> with a focus on interaction and accessible design</span>
+          <span className="md:hidden">
+            {" "}
+            <HeroWord delay={wordDelay(4)} reduceMotion={reduceMotion}>
+              with
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(5)} reduceMotion={reduceMotion}>
+              a
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(6)} reduceMotion={reduceMotion}>
+              focus
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(7)} reduceMotion={reduceMotion}>
+              on
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(8)} reduceMotion={reduceMotion}>
+              interaction
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(9)} reduceMotion={reduceMotion}>
+              and
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(10)} reduceMotion={reduceMotion}>
+              accessible
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(11)} reduceMotion={reduceMotion}>
+              design
+            </HeroWord>
+          </span>
           <span className="hidden md:inline">
             <br aria-hidden="true" />
-            with a focus on interaction <br aria-hidden="true" />
-            and accessible design
+            <HeroWord delay={wordDelay(4)} reduceMotion={reduceMotion}>
+              with
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(5)} reduceMotion={reduceMotion}>
+              a
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(6)} reduceMotion={reduceMotion}>
+              focus
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(7)} reduceMotion={reduceMotion}>
+              on
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(8)} reduceMotion={reduceMotion}>
+              interaction
+            </HeroWord>{" "}
+            <br aria-hidden="true" />
+            <HeroWord delay={wordDelay(9)} reduceMotion={reduceMotion}>
+              and
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(10)} reduceMotion={reduceMotion}>
+              accessible
+            </HeroWord>{" "}
+            <HeroWord delay={wordDelay(11)} reduceMotion={reduceMotion}>
+              design
+            </HeroWord>
           </span>
         </h1>
       </PageContainer>
