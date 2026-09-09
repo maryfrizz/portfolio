@@ -1,8 +1,8 @@
-# Plan: each component and section as a separate tracer bullet
+# Plan: reusable tracer bullets for the portfolio copy
 
 ## Summary
 
-Build the `kozikova.com` copy with Feature-Sliced Design, where every component and every section is implemented as its own tracer bullet.
+Build the `kozikova.com` copy with Feature-Sliced Design, using tracer bullets that keep the UI reusable instead of creating a one-off component for every content item.
 
 One tracer bullet is one small complete vertical slice:
 
@@ -11,6 +11,8 @@ One tracer bullet is one small complete vertical slice:
 - styles;
 - connection to the nearest parent;
 - quick render/build verification.
+
+Important correction: selected work projects are the same repeated pattern in the original site. There must be one reusable project component, driven by project data, not separate `HapdayProjectSection`, `CaliforniaClosetsProjectSection`, `SleepiestProjectSection`, `SerenaLilyProjectSection`, and `Q2ProjectSection` implementations.
 
 Scope: the home page `/` and the California Closets case-study page `/case`.
 
@@ -36,13 +38,27 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 
 - `src/shared/ui/*`: small reusable UI elements.
 - `src/shared/lib/*`: small utilities for classes, asset metadata, and link helpers if needed.
-- `src/entities/project/*`: project entity types, data, and project-card UI.
+- `src/entities/project/*`: project entity types, selected-work data, and one reusable project-card UI.
 - `src/entities/case-study/*`: case-study metadata, text blocks, metrics, and image groups.
 - `src/widgets/*`: page sections.
 - `src/views/home/*`: home page composition, named `views` to avoid Next.js treating FSD `pages` as Pages Router.
 - `src/views/case/*`: case page composition, named `views` to avoid Next.js treating FSD `pages` as Pages Router.
 - `app/page.tsx`: thin Next route entrypoint for the home page.
 - `app/case/page.tsx`: thin Next route entrypoint for the case page.
+
+## Reuse Rules
+
+- A repeated original-site pattern gets one reusable component plus typed data.
+- A project is data, not a widget. Add or change a project by editing `src/entities/project/model`, not by creating a new project-specific component.
+- `ProjectCard` owns the responsive layout variations needed by all selected-work items, including the Serena & Lily title/year breakpoint behavior.
+- `SelectedWorkProjectsSection` renders the full ordered project list by mapping over data.
+- Only create a project-specific branch inside `ProjectCard` when the original site has a real visual exception that cannot be expressed as data or a small variant prop.
+
+## Data Tracer Bullets
+
+- TB-D01 `Project` model: title, optional year, tags, description, media, actions, and variant fields.
+- TB-D02 `selectedWorkProjects`: ordered data for Hapday, California Closets, Sleepiest, Serena & Lily, and Q2.
+- TB-D03 `CaseStudy` model/data: California Closets case metadata, text blocks, metrics, and image groups.
 
 ## Component Tracer Bullets
 
@@ -60,7 +76,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - TB-C12 `ProjectTitle`: project title.
 - TB-C13 `ProjectDescription`: project description.
 - TB-C14 `ProjectTagList`: project tag list.
-- TB-C15 `ProjectCard`: complete project card composed from ready project components.
+- TB-C15 `ProjectCard`: complete reusable selected-work project card composed from ready project components and driven by one `Project` object.
 - [x] TB-C16 `FooterEmail`: email link.
 - [x] TB-C17 `FooterSocialLinks`: LinkedIn, CV, and Telegram link group.
 - TB-C18 `CaseMetaItem`: label/value item for duration and categories.
@@ -78,11 +94,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - [x] TB-S01 `HeaderSection`: `Maria Kozikova`, `Linked in`, and `CV`.
 - [x] TB-S02 `HomeHeroSection`: headline, `PortraitInline`, and linked `UX/UI designer` text.
 - [x] TB-S03 `SelectedWorkIntroSection`: `Selected Work` heading and intro copy.
-- TB-S04 `HapdayProjectSection`: Hapday project block with `Case Study` and `View App`.
-- TB-S05 `CaliforniaClosetsProjectSection`: California Closets project block with `/case` link.
-- TB-S06 `SleepiestProjectSection`: Sleepiest project block.
-- TB-S07 `SerenaLilyProjectSection`: Serena & Lily project block, including `/ 2022` where the source breakpoint shows it.
-- TB-S08 `Q2ProjectSection`: Q2 project block with `Coming soon`.
+- TB-S04 `SelectedWorkProjectsSection`: maps `selectedWorkProjects` through the single reusable `ProjectCard` for Hapday, California Closets, Sleepiest, Serena & Lily, and Q2.
 - [x] TB-S09 `HomeFooterSection`: email plus LinkedIn, CV, and Telegram.
 - TB-S10 `CaseCloseNavSection`: close button back to `/`.
 - TB-S11 `CaseHeroSection`: case headline and `California Closets.com` link.
@@ -103,7 +115,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 
 ## Assembly Tracer Bullets
 
-- TB-A01: connect all home sections in `src/views/home`.
+- TB-A01: connect home sections in `src/views/home`, including `SelectedWorkProjectsSection`.
 - TB-A02: connect all case sections in `src/views/case`.
 - TB-A03: connect `src/views/home` in `app/page.tsx`.
 - TB-A04: connect `src/views/case` in `app/case/page.tsx`.
@@ -132,11 +144,7 @@ marked complete.
 - [x] TB-QA-S02 `HomeHeroSection`: verified default and desktop hover states against original at
   375px, 800px, and 1280px.
 - [x] TB-QA-S03 `SelectedWorkIntroSection`: verified against original at 375px, 800px, and 1280px.
-- [ ] TB-QA-S04 `HapdayProjectSection`: verify against original at 375px, 800px, and 1280px.
-- [ ] TB-QA-S05 `CaliforniaClosetsProjectSection`: verify against original at 375px, 800px, and 1280px.
-- [ ] TB-QA-S06 `SleepiestProjectSection`: verify against original at 375px, 800px, and 1280px.
-- [ ] TB-QA-S07 `SerenaLilyProjectSection`: verify against original at 375px, 800px, and 1280px.
-- [ ] TB-QA-S08 `Q2ProjectSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S04 `SelectedWorkProjectsSection`: verify all five rendered `ProjectCard` instances against original at 375px, 800px, and 1280px.
 - [x] TB-QA-S09 `HomeFooterSection`: verified against original HTML styles and local browser
   metrics at 375px, 800px, and 1280px.
 - [ ] TB-QA-S10 `CaseCloseNavSection`: verify against original at 375px, 800px, and 1280px.
@@ -162,6 +170,7 @@ Each tracer bullet must stay small and closed:
 
 - Create or update exactly one component, section, or assembly layer.
 - Connect it to the nearest parent so the result is visible in the UI.
+- Do not create separate components for repeated project instances; extend the shared data model or `ProjectCard` variant surface instead.
 - Do not mix multiple new components in one bullet, except importing already completed components.
 - Before committing each UI bullet, verify design correspondence against all relevant original
   `kozikova.com` breakpoints: visible copy, links, spacing, sizing, colors, typography, and asset
@@ -171,8 +180,10 @@ Each tracer bullet must stay small and closed:
 
 ## Acceptance Criteria
 
-- Every component has its own tracer bullet.
-- Every section has its own tracer bullet.
+- Every reusable component has its own tracer bullet.
+- Every real page section has its own tracer bullet.
+- Selected work uses one reusable `ProjectCard` and one `SelectedWorkProjectsSection`, with all projects rendered from data.
+- No project-specific section/component exists solely to render one project card.
 - FSD boundaries are explicit and preserved.
 - The final site contains `/` and `/case`.
 - Original visible copy, links, and asset URLs from `kozikova.com` are preserved.
