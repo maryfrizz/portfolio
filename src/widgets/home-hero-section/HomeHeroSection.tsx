@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { motion, useAnimationControls, useReducedMotion, type Variants } from "motion/react";
 import Image from "next/image";
+import { useRef, useState } from "react";
 import { PageContainer } from "@/src/shared/ui/page-container";
 import { PortraitInline } from "@/src/shared/ui/portrait-inline";
 
@@ -19,57 +20,52 @@ const outlineVariants = {
   },
 } satisfies Variants;
 
-const portraitVariants = {
-  rest: { opacity: 0, rotate: -4, scale: 0.92, x: 20 },
-  hover: {
-    opacity: 1,
-    rotate: -2,
-    scale: 1,
-    x: 0,
-    transition: {
-      opacity: { duration: 0.1 },
-      rotate: { damping: 22, stiffness: 300, type: "spring" },
-      scale: { damping: 22, stiffness: 300, type: "spring" },
-      x: { damping: 22, stiffness: 300, type: "spring" },
-    },
-  },
-} satisfies Variants;
-
-const originalPortraitVariants = {
-  rest: { opacity: 1, rotate: 0, scale: 1, x: 0, y: 0, zIndex: 2 },
-  hover: {
-    opacity: [1, 1, 1, 0],
-    rotate: [0, -10, -6, 0],
-    scale: [1, 0.96, 0.98, 1],
-    x: [0, -44, -28, 0],
-    y: [0, 18, -10, 0],
-    zIndex: [2, 2, 1, 1],
-    transition: {
-      duration: 0.82,
-      ease: [0.34, 1.56, 0.64, 1],
-      times: [0, 0.38, 0.7, 1],
-    },
-  },
-} satisfies Variants;
-
-const hoverPortraitVariants = {
-  rest: { opacity: 0, rotate: 0, scale: 1, x: 0, y: 0, zIndex: 1 },
-  hover: {
-    opacity: [0, 1, 1, 1],
-    rotate: [0, 8, 4, 0],
-    scale: [1, 0.96, 1.02, 1],
-    x: [0, 34, 22, 0],
-    y: [0, -24, 12, 0],
-    zIndex: [1, 1, 3, 3],
-    transition: {
-      duration: 0.82,
-      ease: [0.34, 1.56, 0.64, 1],
-      times: [0, 0.38, 0.7, 1],
-    },
-  },
-} satisfies Variants;
-
 export function HomeHeroSection() {
+  const firstPhoto = useAnimationControls();
+  const secondPhoto = useAnimationControls();
+  const [frontPhoto, setFrontPhoto] = useState(0);
+  const isSwapping = useRef(false);
+  const activePhoto = useRef(0);
+  const interaction = useRef({ hover: false, focus: false });
+  const reduceMotion = useReducedMotion();
+
+  async function swapPhotos(source: "hover" | "focus", active: boolean) {
+    interaction.current[source] = active;
+    const targetPhoto = () => Number(interaction.current.hover || interaction.current.focus);
+    if (isSwapping.current) return;
+    isSwapping.current = true;
+    const photos = [firstPhoto, secondPhoto];
+    try {
+      while (activePhoto.current !== targetPhoto()) {
+        if (!reduceMotion) {
+          await Promise.all(
+            photos.map((photo, index) =>
+              photo.start({
+                x: index === activePhoto.current ? -74 : 74,
+                transition: { duration: 0.3, ease: "easeInOut" },
+              }),
+            ),
+          );
+        }
+        // Read the latest hover state so quick exits also restore the original.
+        activePhoto.current = targetPhoto();
+        setFrontPhoto(activePhoto.current);
+        if (!reduceMotion) {
+          await Promise.all(
+            photos.map((photo) =>
+              photo.start({
+                x: 0,
+                transition: { duration: 0.3, ease: "easeInOut" },
+              }),
+            ),
+          );
+        }
+      }
+    } finally {
+      isSwapping.current = false;
+    }
+  }
+
   return (
     <section aria-labelledby="home-hero-heading" className="overflow-hidden bg-white">
       <PageContainer
@@ -96,12 +92,6 @@ export function HomeHeroSection() {
           priority
           src="/assets/home/maria-portrait-inline.png"
         />
-        <PortraitInline
-          alt="portrait of designer"
-          className="!absolute left-[386px] top-[78px] !hidden size-[130px] xl:!inline-block"
-          priority
-          src="/assets/home/maria-portrait-desktop.png"
-        />
         <h1
           className="text-[44px] font-medium leading-[1.1] tracking-[-1.32px] text-[#120a1d] md:whitespace-nowrap md:text-[56px] md:tracking-[-1.68px] xl:text-[77px] xl:tracking-[-2.31px]"
           id="home-hero-heading"
@@ -113,6 +103,10 @@ export function HomeHeroSection() {
             className="relative inline-block font-medium transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current"
             href={linkedInUrl}
             initial="rest"
+            onBlur={() => swapPhotos("focus", false)}
+            onFocus={() => swapPhotos("focus", true)}
+            onHoverEnd={() => swapPhotos("hover", false)}
+            onHoverStart={() => swapPhotos("hover", true)}
             rel="noreferrer"
             target="_blank"
             whileFocus="hover"
@@ -139,36 +133,41 @@ export function HomeHeroSection() {
                 />
               </svg>
             </motion.span>
-            <motion.span
+            <span
               aria-hidden="true"
-              className="!absolute left-[-147px] top-[-18px] !hidden size-[130px] origin-center xl:!inline-block"
-              variants={portraitVariants}
+              className="pointer-events-none !absolute left-[-158px] top-[-18px] z-20 !hidden size-[130px] xl:!inline-block"
             >
               <motion.span
-                className="absolute inset-0 overflow-hidden rounded-full shadow-[0_8px_18px_rgba(18,10,29,0.08)]"
-                variants={originalPortraitVariants}
+                animate={firstPhoto}
+                className="absolute inset-0 overflow-hidden rounded-full"
+                initial={{ x: 0 }}
+                style={{ zIndex: frontPhoto === 0 ? 2 : 1 }}
               >
                 <Image
                   alt=""
                   className="object-cover"
                   fill
+                  priority
                   sizes="130px"
                   src="/assets/home/maria-portrait-desktop.png"
                 />
               </motion.span>
               <motion.span
-                className="absolute inset-0 overflow-hidden rounded-full shadow-[0_8px_18px_rgba(18,10,29,0.08)]"
-                variants={hoverPortraitVariants}
+                animate={secondPhoto}
+                className="absolute inset-0 overflow-hidden rounded-full"
+                initial={{ x: 0 }}
+                style={{ zIndex: frontPhoto === 1 ? 2 : 1 }}
               >
                 <Image
                   alt=""
                   className="object-cover"
                   fill
+                  priority
                   sizes="130px"
                   src="/assets/home/maria-portrait-desktop-hover.png"
                 />
               </motion.span>
-            </motion.span>
+            </span>
             <span className="relative z-10">UX/UI designer</span>
           </motion.a>
           <span className="md:hidden"> with a focus on interaction and accessible design</span>
