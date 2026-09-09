@@ -69,7 +69,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - [x] TB-C05 `CloseIcon`: close/back icon for the case page.
 - [x] TB-C06 `PortraitInline`: circular portrait inside the hero line.
 - [x] TB-C07 `Tag`: compact project tag.
-- TB-C08 `ProjectImage`: single project image with fixed ratio and alt text.
+- [x] TB-C08 `ProjectImage`: single project image with fixed ratio and alt text.
 - TB-C09 `ProjectMediaGroup`: grouped project images.
 - TB-C10 `ProjectActionLink`: CTA link for `Case Study`, `View App`, or `View Website`.
 - TB-C11 `ProjectComingSoon`: non-link CTA text for `Coming soon`.
