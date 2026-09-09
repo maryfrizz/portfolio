@@ -1,0 +1,1 @@
+export { PortraitInline } from "./PortraitInline";
