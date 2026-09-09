@@ -113,6 +113,45 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - TB-A08: final link and asset URL verification.
 - TB-A09: final `bun run lint` and `bun run build`.
 
+## Visual QA Tracer Bullets
+
+Every section tracer bullet must include a total visual correspondence pass before it can be
+marked complete.
+
+- Required breakpoints: 375px mobile, 800px tablet, and 1280px desktop, matching the original
+  `kozikova.com` breakpoint set.
+- For each breakpoint, compare the local section against the original site for visible copy,
+  line breaks, spacing, sizing, colors, typography, asset choice, and link targets.
+- Keep screenshot or measurement artifacts outside the repo unless they are intentionally added as
+  documentation.
+- Do not mark a section bullet as complete until its breakpoint QA is complete.
+
+- [x] TB-QA-S01 `HeaderSection`: verified against original at 375px, 800px, and 1280px.
+- [x] TB-QA-S02 `HomeHeroSection`: verified against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S03 `SelectedWorkIntroSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S04 `HapdayProjectSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S05 `CaliforniaClosetsProjectSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S06 `SleepiestProjectSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S07 `SerenaLilyProjectSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S08 `Q2ProjectSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S09 `HomeFooterSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S10 `CaseCloseNavSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S11 `CaseHeroSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S12 `CaseOverviewSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S13 `CaseContextSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S14 `CaseProblemSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S15 `CaseDiscoverySection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S16 `CaseNavigationExamplesSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S17 `CaseUXIntroSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S18 `CaseUXMetricsSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S19 `CaseUXImageSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S20 `CaseUIPartTextSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S21 `CaseUIDesktopImagesSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S22 `CaseUIMobileImageSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S23 `CaseDesignLibraryTextSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S24 `CaseDesignLibraryImagesSection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S25 `CaseFooterSection`: verify against original at 375px, 800px, and 1280px.
+
 ## Rule For Each Bullet
 
 Each tracer bullet must stay small and closed:
@@ -120,7 +159,9 @@ Each tracer bullet must stay small and closed:
 - Create or update exactly one component, section, or assembly layer.
 - Connect it to the nearest parent so the result is visible in the UI.
 - Do not mix multiple new components in one bullet, except importing already completed components.
-- Before committing each UI bullet, verify design correspondence against the relevant original `kozikova.com` breakpoint: visible copy, links, spacing, sizing, colors, typography, and asset choice.
+- Before committing each UI bullet, verify design correspondence against all relevant original
+  `kozikova.com` breakpoints: visible copy, links, spacing, sizing, colors, typography, and asset
+  choice.
 - Check TypeScript/import paths after each related group of bullets.
 - Leave the project in a compilable state after each bullet whenever feasible.
 
