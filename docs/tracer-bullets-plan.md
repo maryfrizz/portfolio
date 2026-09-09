@@ -131,6 +131,7 @@ Each tracer bullet must stay small and closed:
 - FSD boundaries are explicit and preserved.
 - The final site contains `/` and `/case`.
 - Original visible copy, links, and asset URLs from `kozikova.com` are preserved.
+- All original image, SVG, and required media assets are downloaded into the project and referenced locally rather than hotlinked from `kozikova.com`.
 - Final checks pass with `bun run lint` and `bun run build`.
 
 ## Assumptions
@@ -138,4 +139,3 @@ Each tracer bullet must stay small and closed:
 - The implementation is a close handcrafted reproduction, not a pixel-perfect Figma export.
 - The existing Next.js project is preserved.
 - No new dependencies are added unless a concrete implementation blocker appears.
-- Original public assets from `kozikova.com/_assets/v11/...` may be referenced directly unless deployment requirements force local asset hosting.
