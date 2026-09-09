@@ -11,6 +11,14 @@ type ProjectCardProps = {
   priority?: boolean;
 };
 
+function renderProjectAction(action: Project["actions"][number]) {
+  if (action.kind === "text") {
+    return <ProjectComingSoon key={action.label}>{action.label}</ProjectComingSoon>;
+  }
+
+  return <ProjectActionLink action={action} key={`${action.label}-${action.href}`} />;
+}
+
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   return (
     <article className="grid gap-5 md:gap-7 xl:grid-cols-[minmax(0,1fr)_440px] xl:items-start xl:gap-10">
@@ -23,13 +31,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
         <div className="grid gap-5 md:col-span-2 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-8 xl:col-span-1 xl:grid-cols-1 xl:items-start">
           <ProjectDescription>{project.description}</ProjectDescription>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-            {project.actions.map((action) =>
-              action.kind === "link" ? (
-                <ProjectActionLink action={action} key={`${action.label}-${action.href}`} />
-              ) : (
-                <ProjectComingSoon key={action.label}>{action.label}</ProjectComingSoon>
-              ),
-            )}
+            {project.actions.map(renderProjectAction)}
           </div>
         </div>
       </div>
