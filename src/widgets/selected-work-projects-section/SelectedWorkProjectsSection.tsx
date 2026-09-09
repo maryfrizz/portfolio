@@ -6,7 +6,7 @@ export function SelectedWorkProjectsSection() {
   return (
     <section aria-label="Selected work projects" className="bg-white">
       <PageContainer
-        className="grid gap-16 px-[15px] pb-[88px] pt-10 md:gap-20 md:px-10 md:pb-[104px] md:pt-12 xl:gap-[120px] xl:px-14 xl:pb-[132px] xl:pt-16"
+        className="grid gap-16 px-[15px] pb-[88px] pt-10 md:gap-20 md:px-10 md:pb-[104px] md:pt-12 xl:gap-[112px] xl:px-14 xl:pb-[132px] xl:pt-10"
         style={{ maxWidth: "none" }}
       >
         {selectedWorkProjects.map((project, index) => (

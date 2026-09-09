@@ -21,10 +21,10 @@ function renderProjectAction(action: Project["actions"][number]) {
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   return (
-    <article className="grid gap-4 md:gap-5 xl:gap-4">
-      <ProjectMediaGroup images={project.images} priority={priority} />
+    <article className="grid gap-3 md:gap-4 xl:gap-4">
+      <ProjectMediaGroup media={project.media} priority={priority} />
       <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-x-8 md:gap-y-5 xl:gap-y-3">
-        <div className="grid gap-4 md:gap-5">
+        <div className="grid gap-2">
           <ProjectTitle title={project.title} year={project.titleYear} />
           <ProjectTagList tags={project.tags} />
         </div>

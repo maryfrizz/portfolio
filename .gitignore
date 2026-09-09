@@ -4,8 +4,8 @@ node_modules
 out
 dist
 coverage
+test-results
 .env
 .env*
 !.env.example
 bun.lockb
-

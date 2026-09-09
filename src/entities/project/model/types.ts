@@ -9,17 +9,21 @@ export type ProjectAction =
       kind: "text";
     };
 
-export type ProjectImage = {
+export type ProjectMedia = {
   alt: string;
   height: number;
   src: string;
+  type: "image" | "video";
+  variant?: "after-wide-overlap" | "wide-overlap";
   width: number;
 };
+
+export type ProjectImage = ProjectMedia;
 
 export type Project = {
   actions: ProjectAction[];
   description: string;
-  images: ProjectImage[];
+  media: ProjectMedia[];
   slug: string;
   tags: string[];
   title: string;
