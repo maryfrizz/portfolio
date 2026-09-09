@@ -77,7 +77,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 
 - [x] TB-S01 `HeaderSection`: `Maria Kozikova`, `Linked in`, and `CV`.
 - [x] TB-S02 `HomeHeroSection`: headline, `PortraitInline`, and linked `UX/UI designer` text.
-- TB-S03 `SelectedWorkIntroSection`: `Selected Work` heading and intro copy.
+- [x] TB-S03 `SelectedWorkIntroSection`: `Selected Work` heading and intro copy.
 - TB-S04 `HapdayProjectSection`: Hapday project block with `Case Study` and `View App`.
 - TB-S05 `CaliforniaClosetsProjectSection`: California Closets project block with `/case` link.
 - TB-S06 `SleepiestProjectSection`: Sleepiest project block.
@@ -131,7 +131,7 @@ marked complete.
 - [x] TB-QA-S01 `HeaderSection`: verified against original at 375px, 800px, and 1280px.
 - [x] TB-QA-S02 `HomeHeroSection`: verified default and desktop hover states against original at
   375px, 800px, and 1280px.
-- [ ] TB-QA-S03 `SelectedWorkIntroSection`: verify against original at 375px, 800px, and 1280px.
+- [x] TB-QA-S03 `SelectedWorkIntroSection`: verified against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S04 `HapdayProjectSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S05 `CaliforniaClosetsProjectSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S06 `SleepiestProjectSection`: verify against original at 375px, 800px, and 1280px.
