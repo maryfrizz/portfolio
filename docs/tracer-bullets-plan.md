@@ -14,6 +14,24 @@ One tracer bullet is one small complete vertical slice:
 
 Scope: the home page `/` and the California Closets case-study page `/case`.
 
+## Verified Source Details
+
+Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
+
+- Visual base: white background, `#120a1d` primary text, `#4a5565` muted text, Figtree typography.
+- Header: `Maria Kozikova`, `Linked in`, `CV`; LinkedIn URL is `https://www.linkedin.com/in/mariakozikova/`; CV URL is `https://drive.google.com/file/d/19ZOWk1pziAGM2Cd1H4an36CIVhsiqO47/view?usp=sharing`.
+- Home hero copy: `I’m Maria`, linked `UX/UI designer`, `with a focus on interaction and accessible design`.
+- Selected Work intro copy: `My favorite projects reflect my approach to design: a focus on details, a deep understanding of the task, and a desire to create clear, aesthetic interfaces.`
+- Hapday project: tags `App`, `UX/UI Research`, `UX/UI Design`, `Motion Design`, `Icons`; description `An AI Life Coaching mobile application that helps people change their everyday habits`; actions `Case Study` and `View App`.
+- California Closets project: tags `Website`, `UX/UI Research`, `UX/UI Design`; description `A website redesign for the largest custom storage brand in North America`; actions `Case Study` and `View Website`.
+- Sleepiest project: tags `UX/UI Design`, `Illustrations`, `App`, `Motion Design`, `Accessibility`; description `Sleep app that helps millions fall asleep every night`; actions `Case Study` and `View App`.
+- Serena & Lily project: title appears as `Serena & Lily / 2022` on some breakpoints and `Serena & Lily` on desktop; tags `UX/UI Research`, `UX/UI Design`, `Accessibility`, `Website`, `Leading`; description `Ecommerce redesign for a leader in luxury home decor`; actions `Case Study` and `View Website`.
+- Q2 project: tags `UX/UI Design`, `Website`, `Icons`; description `A website for a major digital banking platform`; action `Coming soon`.
+- Footer: `mariiavish@gmail.com`, `Linked in`, `CV`, `Telegram`; Telegram URL is `https://t.me/mary_frizz`.
+- Case hero headline source text renders as `A awebsite redesign for the largest custom storage brand in North America`; preserve source copy unless intentionally correcting obvious typo.
+- Case metadata: duration `8 months`; tags `Website`, `UX/UI Research`, `UX/UI Design`; role text has two paragraphs.
+- Case text flow: `Context`, `Problem`, `Discovery`, navigation example images, `UX Part`, metrics `3 Iterations` and `29 Pages`, UX image, `UI Part`, desktop UI screenshots, mobile screens image, `Design Library and Component System`, design library screenshots, footer.
+
 ## FSD Architecture
 
 - `src/shared/ui/*`: small reusable UI elements.
@@ -60,10 +78,10 @@ Scope: the home page `/` and the California Closets case-study page `/case`.
 - [x] TB-S01 `HeaderSection`: `Maria Kozikova`, `Linked in`, and `CV`.
 - TB-S02 `HomeHeroSection`: headline, `PortraitInline`, and linked `UX/UI designer` text.
 - TB-S03 `SelectedWorkIntroSection`: `Selected Work` heading and intro copy.
-- TB-S04 `HapdayProjectSection`: Hapday project block.
+- TB-S04 `HapdayProjectSection`: Hapday project block with `Case Study` and `View App`.
 - TB-S05 `CaliforniaClosetsProjectSection`: California Closets project block with `/case` link.
 - TB-S06 `SleepiestProjectSection`: Sleepiest project block.
-- TB-S07 `SerenaLilyProjectSection`: Serena & Lily project block.
+- TB-S07 `SerenaLilyProjectSection`: Serena & Lily project block, including `/ 2022` where the source breakpoint shows it.
 - TB-S08 `Q2ProjectSection`: Q2 project block with `Coming soon`.
 - TB-S09 `HomeFooterSection`: email plus LinkedIn, CV, and Telegram.
 - TB-S10 `CaseCloseNavSection`: close button back to `/`.

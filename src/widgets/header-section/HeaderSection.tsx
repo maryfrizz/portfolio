@@ -3,25 +3,30 @@ import { PageContainer } from "@/src/shared/ui/page-container";
 
 const headerLinks = [
   {
-    href: "https://www.linkedin.com/in/mariakozikova",
+    href: "https://www.linkedin.com/in/mariakozikova/",
     label: "Linked in",
   },
   {
-    href: "/cv.pdf",
+    href: "https://drive.google.com/file/d/19ZOWk1pziAGM2Cd1H4an36CIVhsiqO47/view?usp=sharing",
     label: "CV",
   },
 ];
 
 export function HeaderSection() {
   return (
-    <header className="py-5 text-[15px] leading-none text-neutral-950 sm:py-8">
-      <PageContainer className="flex items-center justify-between gap-6">
-        <p className="font-normal">Maria Kozikova</p>
+    <header className="h-[68px] text-base leading-6 tracking-[0.02em] text-[#120a1d] sm:h-[88px]">
+      <PageContainer
+        className="flex h-full items-center justify-between gap-6 px-[15px] sm:px-10"
+        style={{ maxWidth: "none" }}
+      >
+        <p className="font-medium">Maria Kozikova</p>
         <nav aria-label="Primary navigation">
-          <ul className="flex items-center gap-5 sm:gap-7">
+          <ul className="flex items-center gap-7">
             {headerLinks.map((link) => (
               <li key={link.href}>
-                <ExternalTextLink href={link.href}>{link.label}</ExternalTextLink>
+                <ExternalTextLink className="font-semibold" href={link.href}>
+                  {link.label}
+                </ExternalTextLink>
               </li>
             ))}
           </ul>
