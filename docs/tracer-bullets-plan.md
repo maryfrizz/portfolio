@@ -18,7 +18,7 @@ Scope: the home page `/` and the California Closets case-study page `/case`.
 
 Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 
-- Visual base: white background, `#120a1d` primary text, `#4a5565` muted text, Figtree typography.
+- Visual base: white background, `#120a1d` primary text, `#4a5565` muted text, Figtree loaded via `next/font/google`.
 - Header: `Maria Kozikova`, `Linked in`, `CV`; LinkedIn URL is `https://www.linkedin.com/in/mariakozikova/`; CV URL is `https://drive.google.com/file/d/19ZOWk1pziAGM2Cd1H4an36CIVhsiqO47/view?usp=sharing`.
 - Home hero copy: `I’m Maria`, linked `UX/UI designer`, `with a focus on interaction and accessible design`.
 - Selected Work intro copy: `My favorite projects reflect my approach to design: a focus on details, a deep understanding of the task, and a desire to create clear, aesthetic interfaces.`
