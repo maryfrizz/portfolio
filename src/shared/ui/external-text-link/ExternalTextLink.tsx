@@ -12,7 +12,7 @@ export function ExternalTextLink({
 }: ExternalTextLinkProps) {
   return (
     <a
-      className={`transition-colors hover:text-[#dd6b99] focus-visible:text-[#dd6b99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current ${className}`.trim()}
+      className={`text-link-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current ${className}`.trim()}
       rel={rel}
       target={target}
       {...props}

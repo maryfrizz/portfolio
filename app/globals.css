@@ -25,3 +25,12 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.text-link-hover {
+  transition: color 150ms ease;
+}
+
+.text-link-hover:hover,
+.text-link-hover:focus-visible {
+  color: #dd6b99;
+}
