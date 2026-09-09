@@ -71,7 +71,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - [x] TB-C07 `Tag`: compact project tag.
 - [x] TB-C08 `ProjectImage`: single project image with fixed ratio and alt text.
 - [x] TB-C09 `ProjectMediaGroup`: grouped project images.
-- TB-C10 `ProjectActionLink`: CTA link for `Case Study`, `View App`, or `View Website`.
+- [x] TB-C10 `ProjectActionLink`: CTA link for `Case Study`, `View App`, or `View Website`.
 - TB-C11 `ProjectComingSoon`: non-link CTA text for `Coming soon`.
 - TB-C12 `ProjectTitle`: project title.
 - TB-C13 `ProjectDescription`: project description.
