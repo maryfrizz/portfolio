@@ -52,7 +52,7 @@ Scope: the home page `/` and the California Closets case-study page `/case`.
 - TB-C22 `MetricGroup`: grouped metrics.
 - TB-C23 `CaseImage`: single case-study image.
 - TB-C24 `CaseImageGrid`: case-study image grid.
-- TB-C25 `PageContainer`: shared max-width and page padding container.
+- [x] TB-C25 `PageContainer`: shared max-width and page padding container.
 - TB-C26 `SectionSpacer`: shared vertical rhythm between sections.
 
 ## Section Tracer Bullets
