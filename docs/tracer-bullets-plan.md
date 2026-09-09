@@ -49,7 +49,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - [x] TB-C01 `TextLink`: basic text link.
 - [x] TB-C02 `ExternalTextLink`: external link with `target`, `rel`, hover, and focus states.
 - [x] TB-C03 `IconLink`: link rendered with an icon.
-- TB-C04 `ArrowIcon`: CTA arrow icon.
+- [x] TB-C04 `ArrowIcon`: CTA arrow icon.
 - TB-C05 `CloseIcon`: close/back icon for the case page.
 - TB-C06 `PortraitInline`: circular portrait inside the hero line.
 - TB-C07 `Tag`: compact project tag.
