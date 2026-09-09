@@ -28,7 +28,7 @@ Scope: the home page `/` and the California Closets case-study page `/case`.
 
 ## Component Tracer Bullets
 
-- TB-C01 `TextLink`: basic text link.
+- [x] TB-C01 `TextLink`: basic text link.
 - TB-C02 `ExternalTextLink`: external link with `target`, `rel`, hover, and focus states.
 - TB-C03 `IconLink`: link rendered with an icon.
 - TB-C04 `ArrowIcon`: CTA arrow icon.
