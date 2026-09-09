@@ -1,0 +1,1 @@
+export { FooterEmail } from "./FooterEmail";
