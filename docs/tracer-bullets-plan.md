@@ -76,7 +76,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - [x] TB-C12 `ProjectTitle`: project title.
 - [x] TB-C13 `ProjectDescription`: project description.
 - [x] TB-C14 `ProjectTagList`: project tag list.
-- TB-C15 `ProjectCard`: complete reusable selected-work project card composed from ready project components and driven by one `Project` object.
+- [x] TB-C15 `ProjectCard`: complete reusable selected-work project card composed from ready project components and driven by one `Project` object.
 - [x] TB-C16 `FooterEmail`: email link.
 - [x] TB-C17 `FooterSocialLinks`: LinkedIn, CV, and Telegram link group.
 - TB-C18 `CaseMetaItem`: label/value item for duration and categories.
