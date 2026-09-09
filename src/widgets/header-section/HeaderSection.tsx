@@ -14,9 +14,9 @@ const headerLinks = [
 
 export function HeaderSection() {
   return (
-    <header className="h-[68px] text-base leading-6 tracking-[0.02em] text-[#120a1d] sm:h-[88px]">
+    <header className="h-[68px] text-base leading-6 tracking-[0.02em] text-[#120a1d]">
       <PageContainer
-        className="flex h-full items-center justify-between gap-6 px-[15px] sm:px-10"
+        className="flex h-full items-center justify-between gap-6 px-[15px] md:px-10 xl:px-14"
         style={{ maxWidth: "none" }}
       >
         <p className="font-medium">Maria Kozikova</p>
