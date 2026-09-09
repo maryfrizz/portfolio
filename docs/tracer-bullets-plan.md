@@ -21,8 +21,8 @@ Scope: the home page `/` and the California Closets case-study page `/case`.
 - `src/entities/project/*`: project entity types, data, and project-card UI.
 - `src/entities/case-study/*`: case-study metadata, text blocks, metrics, and image groups.
 - `src/widgets/*`: page sections.
-- `src/pages/home/*`: home page composition.
-- `src/pages/case/*`: case page composition.
+- `src/views/home/*`: home page composition, named `views` to avoid Next.js treating FSD `pages` as Pages Router.
+- `src/views/case/*`: case page composition, named `views` to avoid Next.js treating FSD `pages` as Pages Router.
 - `app/page.tsx`: thin Next route entrypoint for the home page.
 - `app/case/page.tsx`: thin Next route entrypoint for the case page.
 
@@ -57,7 +57,7 @@ Scope: the home page `/` and the California Closets case-study page `/case`.
 
 ## Section Tracer Bullets
 
-- TB-S01 `HeaderSection`: `Maria Kozikova`, `Linked in`, and `CV`.
+- [x] TB-S01 `HeaderSection`: `Maria Kozikova`, `Linked in`, and `CV`.
 - TB-S02 `HomeHeroSection`: headline, `PortraitInline`, and linked `UX/UI designer` text.
 - TB-S03 `SelectedWorkIntroSection`: `Selected Work` heading and intro copy.
 - TB-S04 `HapdayProjectSection`: Hapday project block.
@@ -85,10 +85,10 @@ Scope: the home page `/` and the California Closets case-study page `/case`.
 
 ## Assembly Tracer Bullets
 
-- TB-A01: connect all home sections in `src/pages/home`.
-- TB-A02: connect all case sections in `src/pages/case`.
-- TB-A03: connect `src/pages/home` in `app/page.tsx`.
-- TB-A04: connect `src/pages/case` in `app/case/page.tsx`.
+- TB-A01: connect all home sections in `src/views/home`.
+- TB-A02: connect all case sections in `src/views/case`.
+- TB-A03: connect `src/views/home` in `app/page.tsx`.
+- TB-A04: connect `src/views/case` in `app/case/page.tsx`.
 - TB-A05: update metadata in `app/layout.tsx`.
 - TB-A06: final responsive pass for `/`.
 - TB-A07: final responsive pass for `/case`.
