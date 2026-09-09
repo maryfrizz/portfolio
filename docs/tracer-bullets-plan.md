@@ -56,8 +56,8 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 
 ## Data Tracer Bullets
 
-- TB-D01 `Project` model: title, optional year, tags, description, media, actions, and variant fields.
-- TB-D02 `selectedWorkProjects`: ordered data for Hapday, California Closets, Sleepiest, Serena & Lily, and Q2.
+- [x] TB-D01 `Project` model: title, optional year, tags, description, media, actions, and variant fields.
+- [x] TB-D02 `selectedWorkProjects`: ordered data for Hapday, California Closets, Sleepiest, Serena & Lily, and Q2.
 - TB-D03 `CaseStudy` model/data: California Closets case metadata, text blocks, metrics, and image groups.
 
 ## Component Tracer Bullets
@@ -68,7 +68,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - [x] TB-C04 `ArrowIcon`: CTA arrow icon.
 - [x] TB-C05 `CloseIcon`: close/back icon for the case page.
 - [x] TB-C06 `PortraitInline`: circular portrait inside the hero line.
-- TB-C07 `Tag`: compact project tag.
+- [x] TB-C07 `Tag`: compact project tag.
 - TB-C08 `ProjectImage`: single project image with fixed ratio and alt text.
 - TB-C09 `ProjectMediaGroup`: grouped project images.
 - TB-C10 `ProjectActionLink`: CTA link for `Case Study`, `View App`, or `View Website`.
