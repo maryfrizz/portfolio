@@ -62,7 +62,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - TB-C14 `ProjectTagList`: project tag list.
 - TB-C15 `ProjectCard`: complete project card composed from ready project components.
 - [x] TB-C16 `FooterEmail`: email link.
-- TB-C17 `FooterSocialLinks`: LinkedIn, CV, and Telegram link group.
+- [x] TB-C17 `FooterSocialLinks`: LinkedIn, CV, and Telegram link group.
 - TB-C18 `CaseMetaItem`: label/value item for duration and categories.
 - TB-C19 `CaseMetaGroup`: grouped case metadata.
 - TB-C20 `CaseTextBlock`: heading plus one or more paragraphs.
