@@ -74,7 +74,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - [x] TB-C10 `ProjectActionLink`: CTA link for `Case Study`, `View App`, or `View Website`.
 - [x] TB-C11 `ProjectComingSoon`: non-link CTA text for `Coming soon`.
 - [x] TB-C12 `ProjectTitle`: project title.
-- TB-C13 `ProjectDescription`: project description.
+- [x] TB-C13 `ProjectDescription`: project description.
 - TB-C14 `ProjectTagList`: project tag list.
 - TB-C15 `ProjectCard`: complete reusable selected-work project card composed from ready project components and driven by one `Project` object.
 - [x] TB-C16 `FooterEmail`: email link.
