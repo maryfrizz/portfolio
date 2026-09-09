@@ -43,7 +43,19 @@ export function HomeHeroSection() {
         >
           <span>I’m Maria</span>
           <span aria-hidden="true" className="inline-block w-[118px] md:w-[144px] xl:w-[197px]" />
-          <ExternalTextLink className="relative inline-block font-medium" href={linkedInUrl}>
+          <ExternalTextLink
+            className="group/profession relative inline-block font-medium hover:opacity-100 focus-visible:opacity-100"
+            href={linkedInUrl}
+          >
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-[-22px] top-[-30px] hidden h-[143px] w-[560px] bg-[url('/assets/home/hero-outline-desktop-hover.svg')] bg-[length:100%_100%] bg-no-repeat opacity-0 transition-opacity duration-150 group-hover/profession:opacity-100 group-focus-visible/profession:opacity-100 xl:block"
+            />
+            <PortraitInline
+              alt=""
+              className="!absolute left-[-158px] top-[-18px] !hidden size-[130px] opacity-0 transition-opacity duration-150 group-hover/profession:opacity-100 group-focus-visible/profession:opacity-100 xl:!inline-block"
+              src="/assets/home/maria-portrait-desktop-hover.png"
+            />
             <span className="relative z-10">UX/UI designer</span>
           </ExternalTextLink>
           <span className="md:hidden"> with a focus on interaction and accessible design</span>

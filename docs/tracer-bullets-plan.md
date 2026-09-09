@@ -122,12 +122,15 @@ marked complete.
   `kozikova.com` breakpoint set.
 - For each breakpoint, compare the local section against the original site for visible copy,
   line breaks, spacing, sizing, colors, typography, asset choice, and link targets.
+- For interactive sections, compare hover, focus-visible, and any asset/state changes against the
+  original site at every breakpoint where those states exist.
 - Keep screenshot or measurement artifacts outside the repo unless they are intentionally added as
   documentation.
 - Do not mark a section bullet as complete until its breakpoint QA is complete.
 
 - [x] TB-QA-S01 `HeaderSection`: verified against original at 375px, 800px, and 1280px.
-- [x] TB-QA-S02 `HomeHeroSection`: verified against original at 375px, 800px, and 1280px.
+- [x] TB-QA-S02 `HomeHeroSection`: verified default and desktop hover states against original at
+  375px, 800px, and 1280px.
 - [ ] TB-QA-S03 `SelectedWorkIntroSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S04 `HapdayProjectSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S05 `CaliforniaClosetsProjectSection`: verify against original at 375px, 800px, and 1280px.
