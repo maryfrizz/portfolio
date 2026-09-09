@@ -94,7 +94,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - [x] TB-S01 `HeaderSection`: `Maria Kozikova`, `Linked in`, and `CV`.
 - [x] TB-S02 `HomeHeroSection`: headline, `PortraitInline`, and linked `UX/UI designer` text.
 - [x] TB-S03 `SelectedWorkIntroSection`: `Selected Work` heading and intro copy.
-- TB-S04 `SelectedWorkProjectsSection`: maps `selectedWorkProjects` through the single reusable `ProjectCard` for Hapday, California Closets, Sleepiest, Serena & Lily, and Q2.
+- [x] TB-S04 `SelectedWorkProjectsSection`: maps `selectedWorkProjects` through the single reusable `ProjectCard` for Hapday, California Closets, Sleepiest, Serena & Lily, and Q2.
 - [x] TB-S09 `HomeFooterSection`: email plus LinkedIn, CV, and Telegram.
 - TB-S10 `CaseCloseNavSection`: close button back to `/`.
 - TB-S11 `CaseHeroSection`: case headline and `California Closets.com` link.

@@ -5,7 +5,7 @@ export type ProjectAction =
       kind: "link";
     }
   | {
-      label: "Case Study" | "Coming soon";
+      label: "Coming soon";
       kind: "text";
     };
 

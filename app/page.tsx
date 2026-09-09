@@ -2,6 +2,7 @@ import { HeaderSection } from "@/src/widgets/header-section";
 import { HomeFooterSection } from "@/src/widgets/home-footer-section";
 import { HomeHeroSection } from "@/src/widgets/home-hero-section";
 import { SelectedWorkIntroSection } from "@/src/widgets/selected-work-intro-section";
+import { SelectedWorkProjectsSection } from "@/src/widgets/selected-work-projects-section";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <HeaderSection />
       <HomeHeroSection />
       <SelectedWorkIntroSection />
+      <SelectedWorkProjectsSection />
       <HomeFooterSection />
     </main>
   );
