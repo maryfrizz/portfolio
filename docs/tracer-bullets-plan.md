@@ -189,8 +189,8 @@ Each tracer bullet must stay small and closed:
 - Original visible copy, links, and asset URLs from `kozikova.com` are preserved.
 - All original image, SVG, and required media assets are downloaded into the project and referenced locally rather than hotlinked from `kozikova.com`.
 - Final checks pass with `bun run lint` and `bun run build`.
-- Selected work visual parity is guarded by Playwright screenshot tests against original-site
-  baselines at 375px, 800px, and 1280px.
+- Selected work visual QA uses manually captured original-site reference screenshots at 375px,
+  800px, and 1280px.
 
 ## Assumptions
 
