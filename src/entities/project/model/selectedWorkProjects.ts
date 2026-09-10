@@ -44,7 +44,7 @@ export const selectedWorkProjects = [
   },
   {
     actions: [
-      { href: "/case", kind: "link", label: "Case Study" },
+      { href: "/cases/california-closets", kind: "link", label: "Case Study" },
       { href: "https://www.californiaclosets.com/", kind: "link", label: "View Website" },
     ],
     description: "A website redesign for the largest custom storage brand in North America",
