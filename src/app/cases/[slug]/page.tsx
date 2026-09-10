@@ -6,6 +6,7 @@ import { CaseHeroSection } from "@/src/widgets/case-hero-section";
 import { CaseOverviewSection } from "@/src/widgets/case-overview-section";
 import { CaseTextSection } from "@/src/widgets/case-text-section";
 import { CaseTwoImages } from "@/src/widgets/case-two-images";
+import { CaseVideo } from "@/src/widgets/case-video";
 import { HeaderSection } from "@/src/widgets/header-section";
 import { HomeFooterSection } from "@/src/widgets/home-footer-section";
 
@@ -115,6 +116,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           },
         ]}
         theme="dark"
+      />
+      <CaseVideo
+        alt="California Closets website interface animation"
+        src="/assets/case-video/california-closets-ui.mp4"
       />
       <CaseTextSection
         sections={[
