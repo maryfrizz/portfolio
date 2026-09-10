@@ -4,10 +4,7 @@ const heroImage = "/assets/projects/24b98fd052db573f669a3f56ebbc19c2116be7f9.png
 
 export function CaseHeroSection() {
   return (
-    <section
-      aria-label="California Closets website screens"
-      className="relative aspect-[32/17] lg:h-dvh lg:min-h-[100svh] lg:aspect-auto"
-    >
+    <section aria-label="California Closets website screens" className="relative aspect-[32/17]">
       <Image
         alt="California Closets website screens"
         className="object-cover"

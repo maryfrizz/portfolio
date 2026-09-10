@@ -42,7 +42,7 @@ export function CaseTwoImages({
   return (
     <section
       aria-label="Navigation research artifacts"
-      className={`bg-white px-[15px] pb-10 md:px-10 md:pb-[60px] lg:px-14 lg:pb-20 ${topPadding ? "pt-5" : ""}`}
+      className={`bg-white px-[15px] pb-10 md:px-10 md:pb-[60px] lg:px-14 lg:pb-20 ${topPadding ? "pt-5 lg:pt-10" : ""}`}
     >
       <div className="flex flex-col items-start gap-5 lg:flex-row">
         <Image

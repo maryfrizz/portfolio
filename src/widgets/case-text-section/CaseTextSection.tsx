@@ -56,7 +56,11 @@ export function CaseTextSection({ sections, theme = "light" }: CaseTextSectionPr
                 <div>
                   {body.map((paragraph, index) => (
                     <p
-                      className={hasParagraphSpacer && index === 0 ? "mb-6" : undefined}
+                      className={
+                        hasParagraphSpacer && index === 0
+                          ? "mb-6 lg:mb-[39px]"
+                          : "lg:not-last:mb-1.5"
+                      }
                       key={paragraph}
                     >
                       {paragraph}
