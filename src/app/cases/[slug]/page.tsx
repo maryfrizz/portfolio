@@ -79,6 +79,17 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           },
         ]}
       />
+      <CaseTextSection
+        sections={[
+          {
+            body: [
+              "We designed the website to be easy to maintain and scale. To achieve this, each section was prepared as a customizable component with use cases.",
+              "In addition to the components and design libraries, specifications for all the rules were prepared so that developers could begin implementation without requiring extensive additional information from designers.",
+            ],
+            title: "Design Library and Component System",
+          },
+        ]}
+      />
       <HomeFooterSection />
     </main>
   );
