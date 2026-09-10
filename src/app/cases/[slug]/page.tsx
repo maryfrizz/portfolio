@@ -81,7 +81,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             ],
             title: "Discovery",
             hasParagraphSpacer: true,
-            widthClassName: "max-w-[295px] lg:max-w-none",
+            widthClassName: "max-w-[295px] md:max-w-none",
           },
         ]}
       />
@@ -132,8 +132,9 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               "We designed the website to be easy to maintain and scale. To achieve this, each section was prepared as a customizable component with use cases.",
               "In addition to the components and design libraries, specifications for all the rules were prepared so that developers could begin implementation without requiring extensive additional information from designers.",
             ],
+            sectionClassName: "md:my-5",
             title: "Design Library and Component System",
-            titleClassName: "leading-[34px]",
+            titleClassName: "w-[400px] leading-[34px]",
           },
         ]}
       />

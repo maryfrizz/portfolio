@@ -6,7 +6,7 @@ export function CaseHeroSection() {
   return (
     <section
       aria-label="California Closets website screens"
-      className="relative aspect-[32/17] md:h-dvh md:min-h-[100svh] md:aspect-auto"
+      className="relative aspect-[32/17] lg:h-dvh lg:min-h-[100svh] lg:aspect-auto"
     >
       <Image
         alt="California Closets website screens"

@@ -9,6 +9,7 @@ type CaseTextSectionProps = {
     titleClassName?: string;
     widthClassName?: string;
     hasParagraphSpacer?: boolean;
+    sectionClassName?: string;
   }>;
   theme?: "light" | "dark";
 };
@@ -34,8 +35,12 @@ export function CaseTextSection({ sections, theme = "light" }: CaseTextSectionPr
             titleClassName = "",
             widthClassName = "",
             hasParagraphSpacer = false,
+            sectionClassName = "",
           }) => (
-            <article className={`flex flex-col gap-3 lg:flex-row ${widthClassName}`} key={title}>
+            <article
+              className={`flex flex-col gap-3 lg:flex-row ${widthClassName} ${sectionClassName}`}
+              key={title}
+            >
               <h2
                 className={`text-[26px] font-medium leading-6 tracking-[0.02em] lg:w-[400px] lg:text-[28px] ${titleClassName} ${
                   isDark ? "text-white" : "text-[#120a1d]"
