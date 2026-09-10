@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { selectedWorkProjects } from "@/src/entities/project/model";
+import { CaseHeroSection } from "@/src/widgets/case-hero-section";
 import { CaseOverviewSection } from "@/src/widgets/case-overview-section";
 import { CaseTextSection } from "@/src/widgets/case-text-section";
 import { HeaderSection } from "@/src/widgets/header-section";
@@ -42,6 +43,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
   return (
     <main className="min-h-screen bg-white text-[#120a1d]">
       <HeaderSection backHref="/" />
+      <CaseHeroSection />
       <CaseOverviewSection
         duration="8 months"
         heading="A awebsite redesign for the largest custom storage brand in North America"
