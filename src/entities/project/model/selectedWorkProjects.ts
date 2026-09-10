@@ -127,6 +127,13 @@ export const selectedWorkProjects = [
         width: 650,
       },
       {
+        alt: "Serena and Lily inspiration collection",
+        height: 3072,
+        src: `${projectAssetPath}cb876029cdca44414d9409724b9ae6bf4f05a0b0.png`,
+        type: "image",
+        width: 4096,
+      },
+      {
         alt: "Serena and Lily shopping interface",
         height: 2700,
         src: `${projectAssetPath}836bdc38fc36a44cc4e614bde7f16b36ba1f098c.png`,
