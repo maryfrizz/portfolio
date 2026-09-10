@@ -1,12 +1,21 @@
 "use client";
 
-import { motion, useAnimationControls, useReducedMotion, type Variants } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import Image from "next/image";
 import { type ReactNode, useRef, useState } from "react";
 import { PageContainer } from "@/src/shared/ui/page-container";
 import { PortraitInline } from "@/src/shared/ui/portrait-inline";
 
 const linkedInUrl = "https://www.linkedin.com/in/mariakozikova/";
+
+const outlinePaths = {
+  mobile:
+    "M254.348 4.66943C287.268 6.42693 301.592 16.8363 306.146 24.1631C312.684 34.6814 298.664 48.4059 270.016 54.2624C234.967 61.4273 186.623 60.8487 140.023 59.3664C106.962 58.3147 73.3559 56.6788 41.5147 52.9703C19.2838 50.3811 -19.5072 35.6176 15.627 20.4562C34.022 12.5182 57.2108 7.28615 91.3502 4.12271C120.235 1.44617 152.669 0.647733 185.223 2.52609C230.32 5.12809 265.253 11.941 291.515 22.2311",
+  tablet:
+    "M337.224 7.21002C380.869 10.0991 399.861 27.2104 405.899 39.2544C414.567 56.5447 395.979 79.1056 357.996 88.7327C311.528 100.511 247.434 99.5595 185.651 97.1228C141.819 95.394 97.2637 92.7049 55.0485 86.6087C25.5745 82.3524 -25.8548 58.0838 20.7263 33.1609C45.1146 20.1121 75.8584 11.5115 121.121 6.31131C159.416 1.91151 202.417 0.599013 245.578 3.68672C305.367 7.96398 351.682 19.1633 386.5 36.0786",
+  desktop:
+    "M460.569 10.3809C520.142 14.4737 546.065 38.7148 554.307 55.7771C566.139 80.2717 540.766 112.233 488.922 125.871C425.495 142.557 338.009 141.209 253.677 137.757C193.847 135.308 133.031 131.499 75.409 122.862C35.1782 116.833 -35.021 82.452 28.5605 47.1446C61.8496 28.6589 103.814 16.4746 165.595 9.10769C217.867 2.87463 276.562 1.01527 335.475 5.38951C417.085 11.449 480.303 27.3147 527.829 51.278",
+} as const;
 
 const outlineVariants = {
   rest: { opacity: 0, pathLength: 0 },
@@ -19,6 +28,58 @@ const outlineVariants = {
     },
   },
 } satisfies Variants;
+
+type AnimatedOutlineProps = {
+  className: string;
+  delay: number;
+  path: string;
+  reduceMotion: boolean | null;
+  showOnHover?: boolean;
+  strokeWidth: number;
+  viewBox: string;
+};
+
+function AnimatedOutline({
+  className,
+  delay,
+  path,
+  reduceMotion,
+  showOnHover = false,
+  strokeWidth,
+  viewBox,
+}: AnimatedOutlineProps) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      focusable="false"
+      preserveAspectRatio="none"
+      viewBox={viewBox}
+    >
+      <motion.path
+        animate={showOnHover ? undefined : { opacity: 1, pathLength: 1 }}
+        d={path}
+        initial={showOnHover || reduceMotion ? undefined : { opacity: 0, pathLength: 0 }}
+        stroke="#DD6B99"
+        strokeLinecap="round"
+        strokeWidth={strokeWidth}
+        transition={
+          showOnHover
+            ? undefined
+            : reduceMotion
+              ? { duration: 0 }
+              : {
+                  delay,
+                  opacity: { duration: 0.08 },
+                  pathLength: { duration: 0.72, ease: [0.22, 1, 0.36, 1] },
+                }
+        }
+        variants={showOnHover ? outlineVariants : undefined}
+      />
+    </svg>
+  );
+}
 
 type HeroWordProps = {
   children: ReactNode;
@@ -42,52 +103,16 @@ function HeroWord({ children, delay, reduceMotion }: HeroWordProps) {
 }
 
 export function HomeHeroSection() {
-  const firstPhoto = useAnimationControls();
-  const secondPhoto = useAnimationControls();
   const [frontPhoto, setFrontPhoto] = useState(0);
-  const isSwapping = useRef(false);
-  const activePhoto = useRef(0);
   const interaction = useRef({ hover: false, focus: false });
   const reduceMotion = useReducedMotion();
   const entranceTransition = { duration: 0.7, ease: [0.22, 1, 0.36, 1] } as const;
   const heroEntranceDelays = { outline: 0.94, photo: 1 } as const;
   const wordDelay = (index: number) => 0.22 + index * 0.06;
 
-  async function swapPhotos(source: "hover" | "focus", active: boolean) {
+  function swapPhotos(source: "hover" | "focus", active: boolean) {
     interaction.current[source] = active;
-    const targetPhoto = () => Number(interaction.current.hover || interaction.current.focus);
-    if (isSwapping.current) return;
-    isSwapping.current = true;
-    const photos = [firstPhoto, secondPhoto];
-    try {
-      while (activePhoto.current !== targetPhoto()) {
-        if (!reduceMotion) {
-          await Promise.all(
-            photos.map((photo, index) =>
-              photo.start({
-                x: index === activePhoto.current ? -74 : 74,
-                transition: { duration: 0.3, ease: "easeInOut" },
-              }),
-            ),
-          );
-        }
-        // Read the latest hover state so quick exits also restore the original.
-        activePhoto.current = targetPhoto();
-        setFrontPhoto(activePhoto.current);
-        if (!reduceMotion) {
-          await Promise.all(
-            photos.map((photo) =>
-              photo.start({
-                x: 0,
-                transition: { duration: 0.3, ease: "easeInOut" },
-              }),
-            ),
-          );
-        }
-      }
-    } finally {
-      isSwapping.current = false;
-    }
+    setFrontPhoto(Number(interaction.current.hover || interaction.current.focus));
   }
 
   return (
@@ -96,20 +121,6 @@ export function HomeHeroSection() {
         className="relative px-[15px] py-10 md:px-10 md:pb-[60px] md:pt-20 xl:px-14 xl:pb-20 xl:pt-[100px]"
         style={{ maxWidth: "none" }}
       >
-        <motion.div
-          aria-hidden="true"
-          animate={{ opacity: 1, y: 0 }}
-          className="pointer-events-none absolute left-[2px] top-[73px] h-[73px] w-[310px] bg-[url('/assets/home/hero-outline-mobile.svg')] bg-[length:100%_100%] bg-no-repeat md:hidden"
-          initial={reduceMotion ? false : { opacity: 0, y: "100%" }}
-          transition={{ ...entranceTransition, delay: heroEntranceDelays.outline }}
-        />
-        <motion.div
-          aria-hidden="true"
-          animate={{ opacity: 1, y: 0 }}
-          className="pointer-events-none absolute left-[369px] top-[47px] hidden h-[120px] w-[411px] bg-[url('/assets/home/hero-outline-tablet.svg')] bg-[length:100%_100%] bg-no-repeat md:block xl:hidden"
-          initial={reduceMotion ? false : { opacity: 0, y: "100%" }}
-          transition={{ ...entranceTransition, delay: heroEntranceDelays.outline }}
-        />
         <motion.span
           animate={{ opacity: 1, scale: 1, y: 0 }}
           className="absolute left-[200px] top-[26px] size-[72px] md:hidden"
@@ -161,27 +172,31 @@ export function HomeHeroSection() {
             whileFocus="hover"
             whileHover="hover"
           >
-            <motion.span
-              aria-hidden="true"
+            <AnimatedOutline
+              className="pointer-events-none absolute left-[-12px] top-[-12px] h-[73px] w-[310px] md:hidden"
+              delay={heroEntranceDelays.outline}
+              path={outlinePaths.mobile}
+              reduceMotion={reduceMotion}
+              strokeWidth={3}
+              viewBox="0 0 309.23 61.7978"
+            />
+            <AnimatedOutline
+              className="pointer-events-none absolute left-[-16px] top-[-21px] hidden h-[120px] w-[411px] md:block xl:hidden"
+              delay={heroEntranceDelays.outline}
+              path={outlinePaths.tablet}
+              reduceMotion={reduceMotion}
+              strokeWidth={4}
+              viewBox="0 0 410.004 100.654"
+            />
+            <AnimatedOutline
               className="pointer-events-none absolute left-[-22px] top-[-30px] hidden h-[143px] w-[560px] xl:block"
-            >
-              <svg
-                aria-hidden="true"
-                className="size-full overflow-visible"
-                fill="none"
-                focusable="false"
-                preserveAspectRatio="none"
-                viewBox="0 0 560.179 142.927"
-              >
-                <motion.path
-                  d="M460.569 10.3809C520.142 14.4737 546.065 38.7148 554.307 55.7771C566.139 80.2717 540.766 112.233 488.922 125.871C425.495 142.557 338.009 141.209 253.677 137.757C193.847 135.308 133.031 131.499 75.409 122.862C35.1782 116.833 -35.021 82.452 28.5605 47.1446C61.8496 28.6589 103.814 16.4746 165.595 9.10769C217.867 2.87463 276.562 1.01527 335.475 5.38951C417.085 11.449 480.303 27.3147 527.829 51.278"
-                  stroke="#DD6B99"
-                  strokeLinecap="round"
-                  strokeWidth="6"
-                  variants={outlineVariants}
-                />
-              </svg>
-            </motion.span>
+              delay={heroEntranceDelays.outline}
+              path={outlinePaths.desktop}
+              reduceMotion={reduceMotion}
+              showOnHover
+              strokeWidth={6}
+              viewBox="0 0 560.179 142.927"
+            />
             <motion.span
               aria-hidden="true"
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -190,10 +205,10 @@ export function HomeHeroSection() {
               transition={{ ...entranceTransition, delay: heroEntranceDelays.photo }}
             >
               <motion.span
-                animate={firstPhoto}
+                animate={{ opacity: frontPhoto === 0 ? 1 : 0 }}
                 className="absolute inset-0 overflow-hidden rounded-full"
-                initial={{ x: 0 }}
-                style={{ zIndex: frontPhoto === 0 ? 2 : 1 }}
+                initial={{ opacity: 1 }}
+                transition={reduceMotion ? { duration: 0 } : { duration: 0.3, ease: "easeInOut" }}
               >
                 <Image
                   alt=""
@@ -205,10 +220,10 @@ export function HomeHeroSection() {
                 />
               </motion.span>
               <motion.span
-                animate={secondPhoto}
+                animate={{ opacity: frontPhoto === 1 ? 1 : 0 }}
                 className="absolute inset-0 overflow-hidden rounded-full"
-                initial={{ x: 0 }}
-                style={{ zIndex: frontPhoto === 1 ? 2 : 1 }}
+                initial={{ opacity: 0 }}
+                transition={reduceMotion ? { duration: 0 } : { duration: 0.3, ease: "easeInOut" }}
               >
                 <Image
                   alt=""
