@@ -60,7 +60,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
   return (
     <main className="min-h-screen bg-white text-[#120a1d]">
-      <HeaderSection />
+      <HeaderSection backHref="/" />
 
       <article>
         <PageContainer
