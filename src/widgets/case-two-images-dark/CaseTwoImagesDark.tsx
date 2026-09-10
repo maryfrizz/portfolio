@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { ScrollReveal } from "@/src/shared/ui/scroll-reveal";
 
-const uiScreenImage = "/assets/case-two-images-dark/ui-screen.png";
-const navigationScreenImage = "/assets/case-two-images-dark/navigation-screen.png";
+const primaryUiScreenImage = "/assets/case-two-images-dark/ui-primary.png";
+const secondaryUiScreenImage = "/assets/case-two-images-dark/ui-secondary.png";
 
 export function CaseTwoImagesDark() {
   return (
@@ -13,12 +13,12 @@ export function CaseTwoImagesDark() {
       <div className="flex flex-col items-start gap-[30px] lg:flex-row lg:gap-5">
         <ScrollReveal className="order-2 aspect-[662/535] w-full overflow-hidden rounded-lg lg:order-1 lg:min-w-0 lg:flex-1">
           <Image
-            alt="California Closets interface design"
+            alt="California Closets UI design"
             className="h-full w-full object-cover object-center"
-            height={991}
+            height={2442}
             sizes="(min-width: 1024px) calc(100vw - 588px), (min-width: 768px) calc(100vw - 80px), calc(100vw - 30px)"
-            src={uiScreenImage}
-            width={1549}
+            src={primaryUiScreenImage}
+            width={2880}
           />
         </ScrollReveal>
         <ScrollReveal
@@ -26,12 +26,12 @@ export function CaseTwoImagesDark() {
           delay={0.12}
         >
           <Image
-            alt="California Closets navigation design"
+            alt="California Closets UI design detail"
             className="h-full w-full object-cover"
-            height={648}
+            height={1800}
             sizes="(min-width: 1024px) 476px, (min-width: 768px) calc(100vw - 80px), calc(100vw - 30px)"
-            src={navigationScreenImage}
-            width={1024}
+            src={secondaryUiScreenImage}
+            width={2880}
           />
         </ScrollReveal>
       </div>
