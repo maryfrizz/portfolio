@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { selectedWorkProjects } from "@/src/entities/project/model";
+import { CaseFullwidthImage } from "@/src/widgets/case-fullwidth-image";
 import { CaseHeroSection } from "@/src/widgets/case-hero-section";
 import { CaseOverviewSection } from "@/src/widgets/case-overview-section";
 import { CaseTextSection } from "@/src/widgets/case-text-section";
@@ -91,6 +92,14 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             title: "Design Library and Component System",
           },
         ]}
+      />
+      <CaseFullwidthImage
+        alt="California Closets UX website screens"
+        image="/assets/case-fullwidth-image/ux-screens.png"
+      />
+      <CaseFullwidthImage
+        alt="California Closets mobile website screens"
+        image="/assets/case-fullwidth-image/mobile-screens.png"
       />
       <HomeFooterSection />
     </main>
