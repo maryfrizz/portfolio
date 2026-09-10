@@ -80,6 +80,8 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               "Based on takeaways from research and stakeholder interviews, we created a new site architecture, navigation, and page structure before moving on to design.",
             ],
             title: "Discovery",
+            hasParagraphSpacer: true,
+            widthClassName: "max-w-[295px] lg:max-w-none",
           },
         ]}
       />
@@ -131,6 +133,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               "In addition to the components and design libraries, specifications for all the rules were prepared so that developers could begin implementation without requiring extensive additional information from designers.",
             ],
             title: "Design Library and Component System",
+            titleClassName: "leading-[34px]",
           },
         ]}
       />
@@ -141,12 +144,15 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           src: "/assets/case-two-images/design-library-primary.png",
           width: 2186,
         }}
+        firstImageAspectRatio="aspect-[295/184.685]"
         secondImage={{
           alt: "California Closets design library overview",
           height: 1302,
           src: "/assets/case-two-images/design-library-secondary.png",
           width: 2174,
         }}
+        secondImageAspectRatio="aspect-[672/388]"
+        topPadding
       />
       <HomeFooterSection />
     </main>

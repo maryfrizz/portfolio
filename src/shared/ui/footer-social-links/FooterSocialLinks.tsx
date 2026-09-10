@@ -17,11 +17,13 @@ const footerLinks = [
 
 export function FooterSocialLinks() {
   return (
-    <nav aria-label="Footer links">
-      <ul className="flex flex-wrap items-center gap-x-7 gap-y-4 text-base font-semibold leading-6 tracking-[0.02em] text-[#120a1d]">
+    <nav aria-label="Footer links" className="h-[50px]">
+      <ul className="flex h-12 w-full items-center justify-between text-base font-semibold leading-6 tracking-[0.02em] text-[#120a1d]">
         {footerLinks.map((link) => (
           <li key={link.href}>
-            <ExternalTextLink href={link.href}>{link.label}</ExternalTextLink>
+            <ExternalTextLink className="inline-flex h-12 items-center" href={link.href}>
+              {link.label}
+            </ExternalTextLink>
           </li>
         ))}
       </ul>
