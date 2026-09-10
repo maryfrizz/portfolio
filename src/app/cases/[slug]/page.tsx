@@ -101,6 +101,20 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         alt="California Closets mobile website screens"
         image="/assets/case-fullwidth-image/mobile-screens.png"
       />
+      <CaseTwoImages
+        firstImage={{
+          alt: "California Closets design library component details",
+          height: 1442,
+          src: "/assets/case-two-images/design-library-primary.png",
+          width: 2186,
+        }}
+        secondImage={{
+          alt: "California Closets design library overview",
+          height: 1302,
+          src: "/assets/case-two-images/design-library-secondary.png",
+          width: 2174,
+        }}
+      />
       <HomeFooterSection />
     </main>
   );
