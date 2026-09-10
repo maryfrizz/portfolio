@@ -99,9 +99,7 @@ Source checked against `https://kozikova.com/` and `https://kozikova.com/case`.
 - TB-S10 `CaseCloseNavSection`: close button back to `/`.
 - TB-S11 `CaseHeroSection`: case headline and `California Closets.com` link.
 - TB-S12 `CaseOverviewSection`: duration, categories, and `My Role`.
-- TB-S13 `CaseContextSection`: `Context` text.
-- TB-S14 `CaseProblemSection`: `Problem` text.
-- TB-S15 `CaseDiscoverySection`: `Discovery` text.
+- TB-S13 `CaseTextSection`: grouped `Context`, `Problem`, and `Discovery` text blocks.
 - TB-S16 `CaseNavigationExamplesSection`: navigation example image pair.
 - TB-S17 `CaseUXIntroSection`: `UX Part` intro text.
 - TB-S18 `CaseUXMetricsSection`: `3 Iterations` and `29 Pages`.
@@ -150,9 +148,7 @@ marked complete.
 - [ ] TB-QA-S10 `CaseCloseNavSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S11 `CaseHeroSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S12 `CaseOverviewSection`: verify against original at 375px, 800px, and 1280px.
-- [ ] TB-QA-S13 `CaseContextSection`: verify against original at 375px, 800px, and 1280px.
-- [ ] TB-QA-S14 `CaseProblemSection`: verify against original at 375px, 800px, and 1280px.
-- [ ] TB-QA-S15 `CaseDiscoverySection`: verify against original at 375px, 800px, and 1280px.
+- [ ] TB-QA-S13 `CaseTextSection`: verify the grouped `Context`, `Problem`, and `Discovery` blocks against the original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S16 `CaseNavigationExamplesSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S17 `CaseUXIntroSection`: verify against original at 375px, 800px, and 1280px.
 - [ ] TB-QA-S18 `CaseUXMetricsSection`: verify against original at 375px, 800px, and 1280px.
