@@ -14,7 +14,7 @@ export function SelectedWorkIntroSection() {
         transition={{ delay: 1.02, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         <PageContainer
-          className="grid gap-4 px-[15px] pt-[88px] md:grid-cols-[224px_1fr] md:gap-[78px] md:px-10 md:pt-[60px] xl:flex xl:items-start xl:justify-between xl:gap-12 xl:px-14 xl:pr-[72px] xl:pt-20"
+          className="grid gap-4 px-[15px] pt-10 md:grid-cols-[224px_1fr] md:gap-[78px] md:px-10 md:pt-[60px] xl:flex xl:items-start xl:justify-between xl:gap-12 xl:px-14 xl:pr-[72px] xl:pt-20"
           style={{ maxWidth: "none" }}
         >
           <h2

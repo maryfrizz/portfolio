@@ -123,7 +123,7 @@ export function HomeHeroSection() {
       >
         <motion.span
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          className="absolute left-[200px] top-[26px] size-[72px] md:hidden"
+          className="absolute left-[200px] top-[22px] size-[72px] md:hidden"
           initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: "100%" }}
           transition={{ ...entranceTransition, delay: heroEntranceDelays.photo }}
         >
@@ -136,7 +136,7 @@ export function HomeHeroSection() {
         </motion.span>
         <motion.span
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          className="absolute left-[265px] top-[69px] hidden size-[88px] md:inline-block xl:hidden"
+          className="absolute left-[265px] top-[65px] hidden size-[88px] md:inline-block xl:hidden"
           initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: "100%" }}
           transition={{ ...entranceTransition, delay: heroEntranceDelays.photo }}
         >
@@ -200,7 +200,7 @@ export function HomeHeroSection() {
             <motion.span
               aria-hidden="true"
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              className="pointer-events-none !absolute left-[-158px] top-[-18px] z-20 !hidden size-[130px] xl:!inline-block"
+              className="pointer-events-none !absolute left-[-158px] top-[-22px] z-20 !hidden size-[130px] xl:!inline-block"
               initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: "100%" }}
               transition={{ ...entranceTransition, delay: heroEntranceDelays.photo }}
             >
