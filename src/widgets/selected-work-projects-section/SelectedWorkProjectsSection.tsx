@@ -10,7 +10,12 @@ export function SelectedWorkProjectsSection() {
         style={{ maxWidth: "none" }}
       >
         {selectedWorkProjects.map((project, index) => (
-          <ProjectCard key={project.slug} priority={index === 0} project={project} />
+          <ProjectCard
+            key={project.slug}
+            priority={index === 0}
+            project={project}
+            reverseMedia={(index + 1) % 2 === 0}
+          />
         ))}
       </PageContainer>
     </section>

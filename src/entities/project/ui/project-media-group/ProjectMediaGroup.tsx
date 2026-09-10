@@ -1,17 +1,33 @@
+import { InfiniteSlider } from "@/src/shared/ui/infinite-slider";
 import type { ProjectMedia as ProjectMediaData } from "../../model";
 import { ProjectImage } from "../project-image";
 
 type ProjectMediaGroupProps = {
   media: ProjectMediaData[];
   priority?: boolean;
+  reverse?: boolean;
 };
 
-export function ProjectMediaGroup({ media, priority = false }: ProjectMediaGroupProps) {
+export function ProjectMediaGroup({
+  media,
+  priority = false,
+  reverse = false,
+}: ProjectMediaGroupProps) {
+  const images = media.map((item, index) => (
+    <ProjectImage key={item.src} media={item} priority={priority && index === 0} />
+  ));
+
   return (
-    <div className="-ml-[15px] flex w-screen gap-3 overflow-x-auto pb-1 md:-ml-10 md:gap-4 xl:ml-0 xl:grid xl:w-auto xl:grid-cols-3 xl:overflow-visible xl:pb-0">
-      {media.map((item, index) => (
-        <ProjectImage key={item.src} media={item} priority={priority && index === 0} />
-      ))}
-    </div>
+    <>
+      <InfiniteSlider
+        className="-ml-[15px] w-screen md:-ml-10 xl:hidden"
+        gap={12}
+        reverse={reverse}
+        speed={100}
+      >
+        {images}
+      </InfiniteSlider>
+      <div className="hidden grid-cols-3 gap-4 xl:grid">{images}</div>
+    </>
   );
 }

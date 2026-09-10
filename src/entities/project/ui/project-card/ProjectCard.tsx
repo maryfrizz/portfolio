@@ -9,6 +9,7 @@ import { ProjectTitle } from "../project-title";
 type ProjectCardProps = {
   project: Project;
   priority?: boolean;
+  reverseMedia?: boolean;
 };
 
 function renderProjectAction(action: Project["actions"][number]) {
@@ -19,10 +20,10 @@ function renderProjectAction(action: Project["actions"][number]) {
   return <ProjectActionLink action={action} key={`${action.label}-${action.href}`} />;
 }
 
-export function ProjectCard({ project, priority = false }: ProjectCardProps) {
+export function ProjectCard({ project, priority = false, reverseMedia = false }: ProjectCardProps) {
   return (
     <article className="grid gap-3 md:gap-4 xl:gap-4">
-      <ProjectMediaGroup media={project.media} priority={priority} />
+      <ProjectMediaGroup media={project.media} priority={priority} reverse={reverseMedia} />
       <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-x-8 md:gap-y-5 xl:gap-y-3">
         <div className="grid gap-2">
           <ProjectTitle title={project.title} year={project.titleYear} />
