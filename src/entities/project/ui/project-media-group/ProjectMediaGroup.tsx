@@ -5,12 +5,14 @@ import { ProjectImage } from "../project-image";
 type ProjectMediaGroupProps = {
   media: ProjectMediaData[];
   priority?: boolean;
+  revealOnMount?: boolean;
   reverse?: boolean;
 };
 
 export function ProjectMediaGroup({
   media,
   priority = false,
+  revealOnMount = false,
   reverse = false,
 }: ProjectMediaGroupProps) {
   const images = media.map((item, index) => (
@@ -19,6 +21,7 @@ export function ProjectMediaGroup({
       media={item}
       priority={priority && index === 0}
       revealDelay={index * 0.06}
+      revealOnMount={revealOnMount}
     />
   ));
 

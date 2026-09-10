@@ -7,9 +7,15 @@ type ScrollRevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  revealOnMount?: boolean;
 };
 
-export function ScrollReveal({ children, className, delay = 0 }: ScrollRevealProps) {
+export function ScrollReveal({
+  children,
+  className,
+  delay = 0,
+  revealOnMount = false,
+}: ScrollRevealProps) {
   const reduceMotion = useReducedMotion();
   const elementRef = useRef<HTMLDivElement>(null);
   const [hasRevealed, setHasRevealed] = useState(false);
@@ -18,7 +24,7 @@ export function ScrollReveal({ children, className, delay = 0 }: ScrollRevealPro
   const backgroundDuration = 0.24;
 
   useEffect(() => {
-    if (reduceMotion) {
+    if (reduceMotion || revealOnMount) {
       setHasRevealed(true);
       return;
     }
@@ -45,7 +51,7 @@ export function ScrollReveal({ children, className, delay = 0 }: ScrollRevealPro
     return () => {
       window.cancelAnimationFrame(animationFrame);
     };
-  }, [reduceMotion]);
+  }, [reduceMotion, revealOnMount]);
 
   useEffect(() => {
     if (!hasRevealed) return;

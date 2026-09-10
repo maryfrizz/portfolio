@@ -6,13 +6,20 @@ type ProjectImageProps = {
   media: ProjectMediaData;
   priority?: boolean;
   revealDelay?: number;
+  revealOnMount?: boolean;
 };
 
-export function ProjectImage({ media, priority = false, revealDelay = 0 }: ProjectImageProps) {
+export function ProjectImage({
+  media,
+  priority = false,
+  revealDelay = 0,
+  revealOnMount = false,
+}: ProjectImageProps) {
   return (
     <ScrollReveal
       className="relative h-[412.5px] w-[325px] shrink-0 overflow-hidden rounded-[16px] bg-[#f3f4f6] md:w-[391px] xl:w-auto xl:min-w-0"
       delay={revealDelay}
+      revealOnMount={revealOnMount}
     >
       {media.type === "video" ? (
         <video
