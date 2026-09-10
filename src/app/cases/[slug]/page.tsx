@@ -103,10 +103,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         alt="California Closets UX website screens"
         image="/assets/case-fullwidth-image/ux-screens.png"
       />
-      <CaseFullwidthImage
-        alt="California Closets mobile website screens"
-        image="/assets/case-fullwidth-image/mobile-screens.png"
-      />
       <CaseTextSection
         sections={[
           {
@@ -123,6 +119,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         src="/assets/case-video/california-closets-ui.mp4"
       />
       <CaseTwoImagesDark />
+      <CaseFullwidthImage
+        alt="California Closets mobile website screens"
+        image="/assets/case-fullwidth-image/mobile-screens.png"
+      />
       <CaseTextSection
         sections={[
           {
