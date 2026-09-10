@@ -6,7 +6,7 @@ type ProjectTagListProps = {
 
 export function ProjectTagList({ tags }: ProjectTagListProps) {
   return (
-    <ul className="flex flex-wrap gap-2 md:gap-x-2.5 md:gap-y-2" aria-label="Project tags">
+    <ul className="flex flex-wrap gap-2.5" aria-label="Project tags">
       {tags.map((tag) => (
         <li key={tag}>
           <Tag>{tag}</Tag>

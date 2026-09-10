@@ -8,7 +8,7 @@ type ProjectImageProps = {
 
 export function ProjectImage({ media, priority = false }: ProjectImageProps) {
   return (
-    <div className="relative h-[412px] w-[391px] shrink-0 overflow-hidden rounded-[16px] bg-[#f4f1f6] xl:w-auto xl:min-w-0 xl:rounded-[20px]">
+    <div className="relative h-[412.5px] w-[391px] shrink-0 overflow-hidden rounded-[16px] bg-[#f3f4f6] xl:w-auto xl:min-w-0">
       {media.type === "video" ? (
         <video
           aria-label={media.alt}

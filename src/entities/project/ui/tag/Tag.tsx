@@ -4,7 +4,7 @@ type TagProps = {
 
 export function Tag({ children }: TagProps) {
   return (
-    <span className="inline-flex h-6 items-center whitespace-nowrap rounded-full bg-[#f3f1f4] px-3 text-xs font-normal leading-none tracking-[0.01em] text-[#4a5565]">
+    <span className="inline-flex items-center whitespace-nowrap rounded-full bg-[#f3f4f6] px-3 py-1 text-sm font-normal leading-5 text-[#364153]">
       {children}
     </span>
   );

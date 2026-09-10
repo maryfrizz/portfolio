@@ -21,7 +21,7 @@ export function ProjectMediaGroup({
     <>
       <InfiniteSlider
         className="-ml-[15px] w-screen md:-ml-10 xl:hidden"
-        gap={12}
+        gap={16}
         reverse={reverse}
         speed={100}
       >

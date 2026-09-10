@@ -22,18 +22,18 @@ function renderProjectAction(action: Project["actions"][number]) {
 
 export function ProjectCard({ project, priority = false, reverseMedia = false }: ProjectCardProps) {
   return (
-    <article className="grid gap-3 md:gap-4 xl:gap-4">
+    <article className="md:pb-2 md:pt-px">
       <ProjectMediaGroup media={project.media} priority={priority} reverse={reverseMedia} />
-      <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-x-8 md:gap-y-5 xl:gap-y-3">
-        <div className="grid gap-2">
-          <ProjectTitle title={project.title} year={project.titleYear} />
-          <ProjectTagList tags={project.tags} />
-        </div>
-        <div className="grid gap-5 md:col-span-2 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-8">
-          <ProjectDescription>{project.description}</ProjectDescription>
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-            {project.actions.map(renderProjectAction)}
+      <div className="flex flex-wrap items-end justify-between gap-y-6 pt-4 md:gap-y-[26px] xl:gap-y-3">
+        <div className="grid min-w-[325px] flex-1 gap-3 xl:max-w-[520px] xl:flex-none">
+          <div className="grid gap-4">
+            <ProjectTitle title={project.title} year={project.titleYear} />
+            <ProjectTagList tags={project.tags} />
           </div>
+          <ProjectDescription>{project.description}</ProjectDescription>
+        </div>
+        <div className="flex flex-wrap items-center gap-4">
+          {project.actions.map(renderProjectAction)}
         </div>
       </div>
     </article>
