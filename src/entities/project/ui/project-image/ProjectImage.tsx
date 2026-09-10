@@ -1,14 +1,19 @@
 import Image from "next/image";
+import { ScrollReveal } from "@/src/shared/ui/scroll-reveal";
 import type { ProjectMedia as ProjectMediaData } from "../../model";
 
 type ProjectImageProps = {
   media: ProjectMediaData;
   priority?: boolean;
+  revealDelay?: number;
 };
 
-export function ProjectImage({ media, priority = false }: ProjectImageProps) {
+export function ProjectImage({ media, priority = false, revealDelay = 0 }: ProjectImageProps) {
   return (
-    <div className="relative h-[412.5px] w-[391px] shrink-0 overflow-hidden rounded-[16px] bg-[#f3f4f6] xl:w-auto xl:min-w-0">
+    <ScrollReveal
+      className="relative h-[412.5px] w-[325px] shrink-0 overflow-hidden rounded-[16px] bg-[#f3f4f6] md:w-[391px] xl:w-auto xl:min-w-0"
+      delay={revealDelay}
+    >
       {media.type === "video" ? (
         <video
           aria-label={media.alt}
@@ -30,6 +35,6 @@ export function ProjectImage({ media, priority = false }: ProjectImageProps) {
           src={media.src}
         />
       )}
-    </div>
+    </ScrollReveal>
   );
 }

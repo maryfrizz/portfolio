@@ -14,7 +14,12 @@ export function ProjectMediaGroup({
   reverse = false,
 }: ProjectMediaGroupProps) {
   const images = media.map((item, index) => (
-    <ProjectImage key={item.src} media={item} priority={priority && index === 0} />
+    <ProjectImage
+      key={item.src}
+      media={item}
+      priority={priority && index === 0}
+      revealDelay={index * 0.06}
+    />
   ));
 
   return (
