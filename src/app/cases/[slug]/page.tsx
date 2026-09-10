@@ -97,6 +97,14 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         ]}
         theme="dark"
       />
+      <CaseFullwidthImage
+        alt="California Closets UX website screens"
+        image="/assets/case-fullwidth-image/ux-screens.png"
+      />
+      <CaseFullwidthImage
+        alt="California Closets mobile website screens"
+        image="/assets/case-fullwidth-image/mobile-screens.png"
+      />
       <CaseTextSection
         sections={[
           {
@@ -107,14 +115,6 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             title: "Design Library and Component System",
           },
         ]}
-      />
-      <CaseFullwidthImage
-        alt="California Closets UX website screens"
-        image="/assets/case-fullwidth-image/ux-screens.png"
-      />
-      <CaseFullwidthImage
-        alt="California Closets mobile website screens"
-        image="/assets/case-fullwidth-image/mobile-screens.png"
       />
       <CaseTwoImages
         firstImage={{
