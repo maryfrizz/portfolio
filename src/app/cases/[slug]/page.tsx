@@ -4,6 +4,7 @@ import { selectedWorkProjects } from "@/src/entities/project/model";
 import { CaseHeroSection } from "@/src/widgets/case-hero-section";
 import { CaseOverviewSection } from "@/src/widgets/case-overview-section";
 import { CaseTextSection } from "@/src/widgets/case-text-section";
+import { CaseTwoImages } from "@/src/widgets/case-two-images";
 import { HeaderSection } from "@/src/widgets/header-section";
 import { HomeFooterSection } from "@/src/widgets/home-footer-section";
 
@@ -79,6 +80,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           },
         ]}
       />
+      <CaseTwoImages />
       <CaseTextSection
         sections={[
           {
