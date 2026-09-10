@@ -6,7 +6,7 @@ export type ProjectAction =
     }
   | {
       label: "Coming soon";
-      kind: "text";
+      kind: "disabled";
     };
 
 export type ProjectMedia = {

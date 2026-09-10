@@ -1,6 +1,5 @@
 import type { Project } from "../../model";
 import { ProjectActionLink } from "../project-action-link";
-import { ProjectComingSoon } from "../project-coming-soon";
 import { ProjectDescription } from "../project-description";
 import { ProjectMediaGroup } from "../project-media-group";
 import { ProjectTagList } from "../project-tag-list";
@@ -13,11 +12,12 @@ type ProjectCardProps = {
 };
 
 function renderProjectAction(action: Project["actions"][number]) {
-  if (action.kind === "text") {
-    return <ProjectComingSoon key={action.label}>{action.label}</ProjectComingSoon>;
-  }
-
-  return <ProjectActionLink action={action} key={`${action.label}-${action.href}`} />;
+  return (
+    <ProjectActionLink
+      action={action}
+      key={action.kind === "link" ? `${action.label}-${action.href}` : action.label}
+    />
+  );
 }
 
 export function ProjectCard({ project, priority = false, reverseMedia = false }: ProjectCardProps) {

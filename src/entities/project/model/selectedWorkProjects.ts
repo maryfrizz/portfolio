@@ -147,7 +147,7 @@ export const selectedWorkProjects = [
     titleYear: "2022",
   },
   {
-    actions: [{ kind: "text", label: "Coming soon" }],
+    actions: [{ kind: "disabled", label: "Coming soon" }],
     description: "A website for a major digital banking platform",
     media: [
       {
