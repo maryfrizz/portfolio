@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { ScrollReveal } from "@/src/shared/ui/scroll-reveal";
 
-const mainNavigationImage = "/assets/case-two-images/main-navigation-full.png";
-const navigationDiagramImage = "/assets/case-two-images/navigation-linking-diagram-full.png";
+const mainNavigationImage = "/assets/case-two-images/main-navigation-full.webp";
+const navigationDiagramImage = "/assets/case-two-images/navigation-linking-diagram-full.webp";
 
 type CaseImage = {
   alt: string;

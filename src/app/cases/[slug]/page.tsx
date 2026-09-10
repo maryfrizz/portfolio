@@ -103,7 +103,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       />
       <CaseFullwidthImage
         alt="California Closets UX website screens"
-        image="/assets/case-fullwidth-image/ux-screens.png"
+        image="/assets/case-fullwidth-image/ux-screens.webp"
       />
       <CaseTextSection
         sections={[
@@ -123,7 +123,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <CaseTwoImagesDark />
       <CaseFullwidthImage
         alt="California Closets mobile website screens"
-        image="/assets/case-fullwidth-image/mobile-screens.png"
+        image="/assets/case-fullwidth-image/mobile-screens.webp"
       />
       <CaseTextSection
         sections={[
@@ -142,14 +142,14 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         firstImage={{
           alt: "California Closets design library component details",
           height: 1442,
-          src: "/assets/case-two-images/design-library-primary.png",
+          src: "/assets/case-two-images/design-library-primary.webp",
           width: 2186,
         }}
         firstImageAspectRatio="aspect-[295/184.685]"
         secondImage={{
           alt: "California Closets design library overview",
           height: 1302,
-          src: "/assets/case-two-images/design-library-secondary.png",
+          src: "/assets/case-two-images/design-library-secondary.webp",
           width: 2174,
         }}
         secondImageAspectRatio="aspect-[672/388]"

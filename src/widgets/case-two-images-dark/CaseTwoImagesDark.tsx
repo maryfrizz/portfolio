@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { ScrollReveal } from "@/src/shared/ui/scroll-reveal";
 
-const primaryUiScreenImage = "/assets/case-two-images-dark/ui-primary.png";
-const secondaryUiScreenImage = "/assets/case-two-images-dark/ui-secondary.png";
+const primaryUiScreenImage = "/assets/case-two-images-dark/ui-primary.webp";
+const secondaryUiScreenImage = "/assets/case-two-images-dark/ui-secondary.webp";
 
 export function CaseTwoImagesDark() {
   return (

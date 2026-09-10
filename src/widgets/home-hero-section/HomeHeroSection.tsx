@@ -131,7 +131,7 @@ export function HomeHeroSection() {
             alt="portrait of designer"
             className="!size-full"
             priority
-            src="/assets/home/maria-portrait-mobile.png"
+            src="/assets/home/maria-portrait-mobile.webp"
           />
         </motion.span>
         <motion.span
@@ -144,7 +144,7 @@ export function HomeHeroSection() {
             alt="portrait of designer"
             className="!size-full"
             priority
-            src="/assets/home/maria-portrait-inline.png"
+            src="/assets/home/maria-portrait-inline.webp"
           />
         </motion.span>
         <h1
@@ -216,7 +216,7 @@ export function HomeHeroSection() {
                   fill
                   priority
                   sizes="130px"
-                  src="/assets/home/maria-portrait-desktop.png"
+                  src="/assets/home/maria-portrait-desktop.webp"
                 />
               </motion.span>
               <motion.span
@@ -231,7 +231,7 @@ export function HomeHeroSection() {
                   fill
                   priority
                   sizes="130px"
-                  src="/assets/home/maria-portrait-desktop-hover.png"
+                  src="/assets/home/maria-portrait-desktop-hover.webp"
                 />
               </motion.span>
             </motion.span>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ScrollReveal } from "@/src/shared/ui/scroll-reveal";
 
-const heroImage = "/assets/projects/24b98fd052db573f669a3f56ebbc19c2116be7f9.png";
+const heroImage = "/assets/projects/24b98fd052db573f669a3f56ebbc19c2116be7f9.webp";
 
 export function CaseHeroSection() {
   return (
