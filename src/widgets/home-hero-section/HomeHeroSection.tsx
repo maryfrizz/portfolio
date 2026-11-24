@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import Image from "next/image";
-import { type ReactNode, useRef, useState } from "react";
+import { type ReactNode, useState } from "react";
 import { PageContainer } from "@/src/shared/ui/page-container";
 import { PortraitInline } from "@/src/shared/ui/portrait-inline";
 
@@ -103,17 +103,13 @@ function HeroWord({ children, delay, reduceMotion }: HeroWordProps) {
 }
 
 export function HomeHeroSection() {
-  const [frontPhoto, setFrontPhoto] = useState(0);
-  const interaction = useRef({ hover: false, focus: false });
+  const [isHeadingHovered, setIsHeadingHovered] = useState(false);
+  const [isLinkFocused, setIsLinkFocused] = useState(false);
+  const showAlternatePhoto = isHeadingHovered || isLinkFocused;
   const reduceMotion = useReducedMotion();
   const entranceTransition = { duration: 0.7, ease: [0.22, 1, 0.36, 1] } as const;
   const heroEntranceDelays = { outline: 0.94, photo: 1 } as const;
   const wordDelay = (index: number) => 0.22 + index * 0.06;
-
-  function swapPhotos(source: "hover" | "focus", active: boolean) {
-    interaction.current[source] = active;
-    setFrontPhoto(Number(interaction.current.hover || interaction.current.focus));
-  }
 
   return (
     <section aria-labelledby="home-hero-heading" className="overflow-hidden bg-white">
@@ -147,30 +143,29 @@ export function HomeHeroSection() {
             src="/assets/home/maria-portrait-inline.webp"
           />
         </motion.span>
-        <h1
-          className="text-[44px] font-medium leading-[1.1] tracking-[-1.32px] text-[#120a1d] md:whitespace-nowrap md:text-[56px] md:tracking-[-1.68px] xl:text-[77px] xl:tracking-[-2.31px]"
+        <motion.h1
+          className="text-[44px] font-medium leading-[1.1] tracking-[-1.32px] text-[#120a1d] md:whitespace-nowrap md:text-[56px] md:tracking-[-1.68px] xl:-mt-[30px] xl:w-fit xl:max-w-full xl:pt-[30px] xl:text-[77px] xl:tracking-[-2.31px]"
           id="home-hero-heading"
+          onHoverEnd={() => setIsHeadingHovered(false)}
+          onHoverStart={() => setIsHeadingHovered(true)}
         >
           <HeroWord delay={wordDelay(0)} reduceMotion={reduceMotion}>
-            I’m
+            Iâ€™m
           </HeroWord>{" "}
           <HeroWord delay={wordDelay(1)} reduceMotion={reduceMotion}>
             Maria
           </HeroWord>
           <span aria-hidden="true" className="inline-block w-[118px] md:w-[144px] xl:w-[197px]" />
           <motion.a
-            animate="rest"
+            animate={isHeadingHovered ? "hover" : "rest"}
             className="relative inline-block font-medium transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current"
             href={linkedInUrl}
             initial="rest"
-            onBlur={() => swapPhotos("focus", false)}
-            onFocus={() => swapPhotos("focus", true)}
-            onHoverEnd={() => swapPhotos("hover", false)}
-            onHoverStart={() => swapPhotos("hover", true)}
+            onBlur={() => setIsLinkFocused(false)}
+            onFocus={() => setIsLinkFocused(true)}
             rel="noreferrer"
             target="_blank"
             whileFocus="hover"
-            whileHover="hover"
           >
             <AnimatedOutline
               className="pointer-events-none absolute left-[-12px] top-[-12px] h-[73px] w-[310px] md:hidden"
@@ -205,7 +200,7 @@ export function HomeHeroSection() {
               transition={{ ...entranceTransition, delay: heroEntranceDelays.photo }}
             >
               <motion.span
-                animate={{ opacity: frontPhoto === 0 ? 1 : 0 }}
+                animate={{ opacity: showAlternatePhoto ? 0 : 1 }}
                 className="absolute inset-0 overflow-hidden rounded-full"
                 initial={{ opacity: 1 }}
                 transition={reduceMotion ? { duration: 0 } : { duration: 0.3, ease: "easeInOut" }}
@@ -220,7 +215,7 @@ export function HomeHeroSection() {
                 />
               </motion.span>
               <motion.span
-                animate={{ opacity: frontPhoto === 1 ? 1 : 0 }}
+                animate={{ opacity: showAlternatePhoto ? 1 : 0 }}
                 className="absolute inset-0 overflow-hidden rounded-full"
                 initial={{ opacity: 0 }}
                 transition={reduceMotion ? { duration: 0 } : { duration: 0.3, ease: "easeInOut" }}
@@ -299,7 +294,7 @@ export function HomeHeroSection() {
               design
             </HeroWord>
           </span>
-        </h1>
+        </motion.h1>
       </PageContainer>
     </section>
   );
