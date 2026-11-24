@@ -147,7 +147,7 @@ export const selectedWorkProjects = [
     titleYear: "2022",
   },
   {
-    actions: [{ kind: "disabled", label: "Coming soon" }],
+    actions: [{ href: "https://clay.global/work/q2", kind: "link", label: "Case Study" }],
     description: "A website for a major digital banking platform",
     media: [
       {
