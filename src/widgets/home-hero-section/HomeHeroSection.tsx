@@ -150,7 +150,7 @@ export function HomeHeroSection() {
           onHoverStart={() => setIsHeadingHovered(true)}
         >
           <HeroWord delay={wordDelay(0)} reduceMotion={reduceMotion}>
-            Iâ€™m
+            I’m
           </HeroWord>{" "}
           <HeroWord delay={wordDelay(1)} reduceMotion={reduceMotion}>
             Maria
